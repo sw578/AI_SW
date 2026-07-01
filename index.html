@@ -25,6 +25,12 @@
       color: #A50034;
       font-weight: 800;
     }
+    .video-box {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
     video {
       width: 100%;
       max-width: 760px;
@@ -36,8 +42,12 @@
       border: 1px solid rgba(165, 0, 52, 0.15);
       background: #000;
       cursor: pointer;
+      pointer-events: none;
     }
     .video-link {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
       display: block;
       text-decoration: none;
     }
@@ -52,12 +62,13 @@
   <main class="wrap">
     <h1>먼저 경험하는 AI SW 역량인증시험, 파일럿 참여자 모집중! ✨</h1>
 
-    <a class="video-link" href="https://sw578.github.io/AI_SW/?v=pilot-root-20260701" title="클릭하면 파일럿 안내 페이지로 이동합니다.">
+    <div class="video-box">
       <video autoplay muted loop playsinline preload="auto">
         <source src="./promo_video.mp4" type="video/mp4" />
         브라우저가 video 태그를 지원하지 않습니다.
       </video>
-    </a>
+      <a class="video-link" href="https://sw578.github.io/AI_SW/?v=pilot-root-20260701" title="클릭하면 파일럿 안내 페이지로 이동합니다." aria-label="파일럿 안내 페이지로 이동"></a>
+    </div>
 
     <div class="note">동영상을 클릭하면 파일럿 안내 페이지로 이동합니다.</div>
   </main>
