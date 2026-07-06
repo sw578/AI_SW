@@ -2,13 +2,799 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI SW 안내 페이지로 이동</title>
-  <meta http-equiv="refresh" content="0; url=../?v=pilot-ai-sw-20260706" />
-  <script>
-    window.location.replace('../?v=pilot-ai-sw-20260706');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI SW 역량인증시험 파일럿 시험 신청 안내 | LG전자</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+    :root {
+      --lg-red: #A50034;
+      --lg-dark-red: #7a0026;
+      --lg-pink: #ff2d6b;
+      --accent: #ff6b35;
+      --accent2: #e8a000;
+      --light-bg: #f9f5f6;
+      --card-bg: #ffffff;
+      --text-main: #1a1a2e;
+      --text-sub: #5a5a7a;
+      --border: rgba(165,0,52,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      background: var(--light-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      font-weight: 500;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── 배경 레이어 ── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(165,0,52,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(165,0,52,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridMove 24s linear infinite;
+    }
+    @keyframes gridMove {
+      0%   { background-position: 0 0; }
+      100% { background-position: 48px 48px; }
+    }
+
+    .bg-glow {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 15% 10%, rgba(165,0,52,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 85% 85%, rgba(255,45,107,0.06) 0%, transparent 60%);
+    }
+
+    /* ── 레이아웃 ── */
+    .page-wrap {
+      position: relative; z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── 상단 배지 ── */
+    .series-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--lg-red), var(--lg-pink));
+      padding: 6px 18px; border-radius: 50px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #fff;
+      box-shadow: 0 4px 20px rgba(165,0,52,0.3);
+      animation: badgePulse 2.5s ease-in-out infinite;
+      margin-bottom: 32px;
+    }
+    @keyframes badgePulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(165,0,52,0.3); }
+      50%      { box-shadow: 0 4px 30px rgba(255,45,107,0.6); }
+    }
+    .series-badge::before {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #fff;
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    /* ── 히어로 섹션 ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 0 60px;
+      gap: 24px;
+    }
+
+    .lg-logo {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 6px; color: rgba(165,0,52,0.5);
+      text-transform: uppercase;
+    }
+
+    .hero-eyebrow {
+      font-size: 14px; font-weight: 600;
+      color: var(--lg-red);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(135deg, var(--lg-dark-red) 0%, var(--lg-red) 40%, var(--lg-pink) 70%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleShimmer 3s ease-in-out infinite alternate;
+    }
+    @keyframes titleShimmer {
+      0%   { filter: drop-shadow(0 2px 8px rgba(165,0,52,0.2)); }
+      100% { filter: drop-shadow(0 2px 18px rgba(255,45,107,0.35)); }
+    }
+
+    .hero-sub {
+      font-size: clamp(18px, 3.5vw, 26px);
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 1px;
+    }
+
+    .hero-desc {
+      font-size: clamp(14px, 2vw, 17px);
+      color: var(--text-sub);
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    /* ── 로봇 히어로 영역 ── */
+    .robot-scene {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── 로봇 캐릭터 ── */
+    .robot-wrap {
+      position: relative;
+      width: 240px; height: 300px;
+      margin: 10px auto;
+      animation: robotFloat 3.2s ease-in-out infinite;
+      /* slight baseline nudge for better visual centering */
+      transform: translateY(6px);
+      z-index: 2;
+    }
+    @keyframes robotFloat {
+      0%,100% { transform: translateY(6px) rotate(-1deg); }
+      50%      { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    .robot-wrap svg {
+      width: 100%; height: 100%;
+      filter: drop-shadow(0 16px 36px rgba(165,0,52,0.2)) drop-shadow(0 4px 12px rgba(100,160,255,0.18));
+    }
+
+    .robot-ring {
+      position: absolute;
+      bottom: -12px; left: 50%; transform: translateX(-50%);
+      width: 140px; height: 20px;
+      background: radial-gradient(ellipse, rgba(165,0,52,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: ringPulse 3.2s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%,100% { transform: translateX(-50%) scaleX(1); opacity:0.5; }
+      50%      { transform: translateX(-50%) scaleX(0.65); opacity:0.15; }
+    }
+
+    /* ── 플로팅 배지들 ── */
+    .float-badge {
+      position: absolute;
+      background: #fff;
+      border-radius: 16px;
+      padding: 10px 14px;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 8px 28px rgba(165,0,52,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      font-size: 13px; font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      z-index: 3;
+      border: 1.5px solid rgba(165,0,52,0.1);
+    }
+    .float-badge .badge-icon { font-size: 20px; }
+    .float-badge .badge-label { font-size: 11px; font-weight: 500; color: var(--text-sub); }
+
+    .badge-ai    { top: 12%; left: -2%;  animation: badgeFloat1 4s ease-in-out infinite; }
+    .badge-skill { top: 22%; right: -4%; animation: badgeFloat2 3.8s ease-in-out infinite; }
+    .badge-grow  { bottom: 28%; left: -6%; animation: badgeFloat3 4.2s ease-in-out infinite; }
+    .badge-star  { bottom: 18%; right: -2%; animation: badgeFloat1 3.5s ease-in-out infinite 0.5s; }
+
+    @keyframes badgeFloat1 {
+      0%,100% { transform: translateY(0px); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes badgeFloat2 {
+      0%,100% { transform: translateY(0px) rotate(2deg); }
+      50%      { transform: translateY(-10px) rotate(-2deg); }
+    }
+    @keyframes badgeFloat3 {
+      0%,100% { transform: translateY(0px) rotate(-1deg); }
+      50%      { transform: translateY(-7px) rotate(2deg); }
+    }
+
+    /* ── 파티클 스파클 ── */
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      font-size: 18px;
+      animation: sparklePop 2.5s ease-in-out infinite;
+      z-index: 1;
+    }
+    .sp1 { top:5%;  left:8%;  animation-delay:0s; }
+    .sp2 { top:10%; right:10%; animation-delay:0.6s; }
+    .sp3 { bottom:35%; left:2%; animation-delay:1.1s; }
+    .sp4 { bottom:25%; right:5%; animation-delay:0.3s; }
+    .sp5 { top:50%; left:-2%; animation-delay:1.8s; font-size:13px; }
+    .sp6 { top:45%; right:0%; animation-delay:0.9s; font-size:13px; }
+    @keyframes sparklePop {
+      0%,100% { transform: scale(0.7) rotate(0deg); opacity:0.4; }
+      50%      { transform: scale(1.2) rotate(20deg); opacity:1; }
+    }
+
+    /* ── 빅 메시지 카드 ── */
+    .big-message {
+      background: linear-gradient(135deg, #fff0f3 0%, #fff8ec 100%);
+      border: 2px solid rgba(165,0,52,0.15);
+      border-radius: 28px;
+      padding: 44px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 48px;
+      box-shadow: 0 8px 40px rgba(165,0,52,0.08);
+    }
+    .big-message::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent 0deg, rgba(165,0,52,0.03) 60deg, transparent 120deg);
+      animation: rotate 10s linear infinite;
+    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    .big-message-text {
+      position: relative; z-index: 1;
+      font-size: clamp(20px,4vw,32px);
+      font-weight: 800;
+      line-height: 1.65;
+      color: var(--text-main);
+    }
+    .big-message-text .highlight {
+      color: var(--accent2);
+    }
+    .big-message-text .highlight-red {
+      color: var(--lg-red);
+    }
+
+    .big-message-note {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 24px 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff8fa 0%, #fff0f4 100%);
+      border: 2px solid rgba(165,0,52,0.38);
+      box-shadow: 0 12px 28px rgba(165,0,52,0.16);
+      color: var(--lg-red);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.65;
+      text-align: center;
+    }
+    .pilot-title {
+      font-size: 24px;
+      color: var(--lg-red);
+      font-weight: 900;
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+      text-shadow: 0 2px 10px rgba(165,0,52,0.16);
+    }
+    .pilot-subcopy {
+      font-size: 15px;
+      color: var(--lg-dark-red);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .pilot-detail {
+      font-size: 15px;
+      color: var(--text-main);
+      font-weight: 700;
+      margin: 2px 0;
+    }
+    .pilot-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 2px solid var(--lg-red);
+      background: var(--lg-red);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(165,0,52,0.24);
+    }
+    .pilot-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    /* ── 섹션 타이틀 ── */
+    .section-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--lg-red);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* ── Why 카드 그리드 ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    .why-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+      box-shadow: 0 4px 20px rgba(165,0,52,0.05);
+    }
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(165,0,52,0.12);
+    }
+    .why-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--lg-red), var(--lg-pink));
+      border-radius: 20px 20px 0 0;
+    }
+
+    .why-icon {
+      font-size: 38px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-size: 17px; font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+
+    /* roadmap removed */
+
+    /* ── 하단 ── */
+    .footer-note {
+      text-align: center;
+      color: rgba(90,90,120,0.6);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(165,0,52,0.1);
+      padding-top: 32px;
+    }
+
+    /* ── 플로팅 파티클 ── */
+    .particles {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: particleRise linear infinite;
+      opacity: 0;
+    }
+    @keyframes particleRise {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+
+    /* ── 파일럿 상세 안내 섹션 ── */
+    .pilot-hero-note{background:linear-gradient(135deg,#fff8fa 0%,#fff3e9 100%);border:2px solid rgba(165,0,52,0.22);border-radius:28px;padding:36px 34px;margin-bottom:44px;text-align:center;box-shadow:0 12px 34px rgba(165,0,52,0.10);position:relative;overflow:hidden}
+    .pilot-hero-note::before{content:'';position:absolute;inset:-60% auto auto -40%;width:180%;height:180%;background:conic-gradient(from 0deg,transparent 0deg,rgba(255,45,107,0.05) 55deg,transparent 110deg);animation:rotate 12s linear infinite}
+    .pilot-hero-inner{position:relative;z-index:1}.pilot-kicker{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:999px;background:rgba(165,0,52,0.08);border:1px solid rgba(165,0,52,0.16);color:var(--lg-red);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .pilot-main-title{font-size:clamp(24px,4.5vw,36px);font-weight:900;line-height:1.35;color:var(--lg-red);margin-bottom:12px;letter-spacing:-0.02em}.pilot-main-copy{color:var(--text-sub);font-size:15px;line-height:1.85;max-width:680px;margin:0 auto 20px;font-weight:600}
+    .pilot-cta-link{display:inline-flex;align-items:center;justify-content:center;margin-top:8px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,var(--lg-dark-red),var(--lg-red),var(--lg-pink));color:#fff;text-decoration:none;font-size:15px;font-weight:900;box-shadow:0 10px 26px rgba(165,0,52,0.25);transition:transform .22s,box-shadow .22s}.pilot-cta-link:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(165,0,52,0.32)}.pilot-small-note{margin-top:12px;font-size:12px;color:var(--text-sub);font-weight:700}
+    .info-section{margin-bottom:44px}.info-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:24px;padding:30px 28px;box-shadow:0 8px 30px rgba(165,0,52,0.06);position:relative;overflow:hidden}.info-card::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lg-red),var(--lg-pink),var(--accent))}
+    .info-title{font-size:24px;font-weight:900;color:var(--text-main);margin-bottom:18px;letter-spacing:-0.02em}.info-desc{font-size:14px;color:var(--text-sub);line-height:1.8;margin-bottom:18px;font-weight:600}
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}.stat-card{background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.10);border-radius:18px;padding:18px 16px;text-align:center}.stat-icon{font-size:28px;margin-bottom:8px}.stat-label{font-size:13px;color:var(--text-sub);font-weight:700}.stat-value{font-size:19px;font-weight:900;color:var(--text-main);margin-top:2px}
+    .type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.type-card{background:#fff;border:1.5px solid rgba(165,0,52,0.14);border-radius:20px;padding:24px 22px;box-shadow:0 5px 18px rgba(165,0,52,0.045)}.type-badge{display:inline-flex;padding:5px 12px;border-radius:999px;background:linear-gradient(135deg,var(--lg-red),var(--lg-pink));color:#fff;font-size:12px;font-weight:900;margin-bottom:14px}.type-title{font-size:19px;font-weight:900;margin-bottom:10px}.type-copy{font-size:14px;color:var(--text-sub);line-height:1.75;font-weight:600}
+    .soft-alert{margin-top:16px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.18);border-radius:16px;padding:14px 16px;color:var(--text-sub);font-size:13px;font-weight:700;line-height:1.7}
+    .guide-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:14px}.guide-table th{width:155px;text-align:left;background:rgba(165,0,52,0.055);color:var(--text-main);padding:14px 15px;border-bottom:1px solid var(--border);font-weight:900;vertical-align:top}.guide-table td{padding:14px 15px;border-bottom:1px solid var(--border);color:var(--text-sub);font-weight:600;line-height:1.75}.guide-table tr:last-child th,.guide-table tr:last-child td{border-bottom:none}
+    .pill-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.prep-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(165,0,52,0.045);border:1px solid rgba(165,0,52,0.12);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:800;color:var(--text-main)}
+    .ai-usage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:16px}.ai-usage-card{background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.10);border-radius:16px;padding:18px 16px}.ai-usage-card strong{display:block;color:var(--text-main);margin-bottom:6px;font-size:14px}.ai-usage-card span{color:var(--text-sub);font-size:13px;line-height:1.65;font-weight:600}
+    .faq-list{border-top:1px solid var(--border)}.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}.faq-q{font-size:15px;font-weight:900;color:var(--text-main);margin-bottom:8px}.faq-a{font-size:14px;color:var(--text-sub);line-height:1.75;font-weight:600}
+    @media(max-width:600px){.pilot-hero-note,.info-card{padding:26px 20px}.guide-table th{width:118px}.pilot-main-title{font-size:25px}}
+
+    /* ── 반응형 ── */
+    @media (max-width: 600px) {
+      .big-message { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
+
+<!-- 배경 레이어 -->
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="particles" id="particles"></div>
+
+<div class="page-wrap">
+
+  <!-- 시리즈 배지 -->
+  <div class="series-badge">🔴 Pilot Wave · AI SW 역량인증시험</div>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="lg-logo">LG Electronics · SW역량강화팀</div>
+    <div class="hero-eyebrow">✦ New Era of SW Developers ✦</div>
+    <h1 class="hero-title">AI SW<br>역량인증시험<br>파일럿 참여자 모집</h1>
+    <p class="hero-sub">AI 시대의 SW 역량, 먼저 경험해보세요! 🚀</p>
+    <p class="hero-desc">
+      LG전자 SW개발자라면 누구나 기다려온<br>
+      <strong>완전히 새로운 성장의 기회</strong>가 드디어 찾아왔습니다!<br>
+      AI 시대, 내가 얼마나 앞서 있는지 궁금하지 않으신가요? 😊
+    </p>
+
+    <!-- 로봇 + 주변 꾸미기 -->
+    <div class="robot-scene">
+
+      <!-- 스파클 -->
+      <span class="sparkle sp1">✨</span>
+      <span class="sparkle sp2">⭐</span>
+      <span class="sparkle sp3">💫</span>
+      <span class="sparkle sp4">✨</span>
+      <span class="sparkle sp5">🌟</span>
+      <span class="sparkle sp6">💡</span>
+
+      <!-- 플로팅 배지 -->
+      <div class="float-badge badge-ai">
+        <span class="badge-icon">🤖</span>
+        <div>
+          <div>AI 활용 능력</div>
+          <div class="badge-label">Level Up!</div>
+        </div>
+      </div>
+      <div class="float-badge badge-skill">
+        <span class="badge-icon">🎯</span>
+        <div>
+          <div>역량 측정</div>
+          <div class="badge-label">Code Level</div>
+        </div>
+      </div>
+      <div class="float-badge badge-grow">
+        <span class="badge-icon">📈</span>
+        <div>
+          <div>성장 확인</div>
+          <div class="badge-label">My Progress</div>
+        </div>
+      </div>
+      <div class="float-badge badge-star">
+        <span class="badge-icon">🏅</span>
+        <div>
+          <div>역량 인증</div>
+          <div class="badge-label">SW Master</div>
+        </div>
+      </div>
+
+      <!-- 로봇 본체 -->
+      <div class="robot-wrap">
+        <svg viewBox="-12 -16 244 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyW" x1="0" y1="0" x2="0.6" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#e2eaf6"/>
+            </linearGradient>
+            <linearGradient id="headW" x1="0.1" y1="0" x2="0.9" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#eaf0fa"/>
+            </linearGradient>
+            <linearGradient id="limbW" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f0f4fc"/>
+              <stop offset="100%" stop-color="#d8e2f0"/>
+            </linearGradient>
+            <linearGradient id="footR" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#A50034"/>
+              <stop offset="100%" stop-color="#ff4d7d"/>
+            </linearGradient>
+            <!-- 양쪽 눈 모두 파란색 -->
+            <radialGradient id="eyeBlue" cx="38%" cy="33%" r="58%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="30%" stop-color="#b8e8ff"/>
+              <stop offset="100%" stop-color="#1a8fff"/>
+            </radialGradient>
+            <linearGradient id="panelG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#eef6ff"/>
+              <stop offset="100%" stop-color="#d0e8fa"/>
+            </linearGradient>
+            <linearGradient id="jointG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d0dced"/>
+              <stop offset="100%" stop-color="#b8c8de"/>
+            </linearGradient>
+            <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="3.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="shadow" x="-20%" y="-15%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#7090cc" flood-opacity="0.18"/>
+            </filter>
+          </defs>
+
+          <!-- 바닥 그림자 -->
+          <ellipse cx="110" cy="275" rx="60" ry="9" fill="rgba(165,0,52,0.1)"/>
+
+          <!-- 안테나 줄기 -->
+          <rect x="107" y="14" width="6" height="28" rx="3" fill="#d0dced"/>
+          <!-- 안테나 볼 -->
+          <circle cx="110" cy="10" r="11" fill="url(#footR)" filter="url(#shadow)">
+            <animate attributeName="r" values="11;14;11" dur="1.6s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="110" cy="10" r="5.5" fill="white" opacity="0.9"/>
+          <!-- 안테나 반짝이 링 -->
+          <circle cx="110" cy="10" r="16" fill="none" stroke="rgba(255,45,107,0.25)" stroke-width="2">
+            <animate attributeName="r" values="14;20;14" dur="1.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0;0.8" dur="1.6s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- ── 머리 (크고 둥글게) ── -->
+          <rect x="52" y="40" width="116" height="96" rx="40" fill="url(#headW)" filter="url(#shadow)"/>
+          <!-- 머리 광택 -->
+          <ellipse cx="93" cy="54" rx="32" ry="9" fill="white" opacity="0.5"/>
+
+          <!-- 귀 (왼) -->
+          <rect x="36" y="66" width="18" height="34" rx="9" fill="url(#limbW)" filter="url(#shadow)"/>
+          <circle cx="45" cy="80" r="4" fill="#ffb3c6" opacity="0.8"/>
+          <!-- 귀 (오) -->
+          <rect x="166" y="66" width="18" height="34" rx="9" fill="url(#limbW)" filter="url(#shadow)"/>
+          <circle cx="175" cy="80" r="4" fill="#ffb3c6" opacity="0.8"/>
+
+          <!-- 눈 배경 패널 -->
+          <rect x="67" y="62" width="86" height="48" rx="16" fill="rgba(200,225,250,0.45)"/>
+
+          <!-- 왼쪽 눈 — 파란색 (slightly larger, friendlier) -->
+          <circle cx="93" cy="84" r="19" fill="white" opacity="0.55"/>
+          <circle cx="93" cy="84" r="15" fill="url(#eyeBlue)" filter="url(#glow)">
+            <animate attributeName="r" values="15;16.5;15" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="99" cy="79" r="5.6" fill="white" opacity="0.95"/>
+          <circle cx="90" cy="92" r="2.2" fill="white" opacity="0.55"/>
+
+          <!-- 오른쪽 눈 — 파란색 (대칭, 조정) -->
+          <circle cx="127" cy="84" r="19" fill="white" opacity="0.55"/>
+          <circle cx="127" cy="84" r="15" fill="url(#eyeBlue)" filter="url(#glow)">
+            <animate attributeName="r" values="15;16.5;15" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="133" cy="79" r="5.6" fill="white" opacity="0.95"/>
+          <circle cx="124" cy="92" r="2.2" fill="white" opacity="0.55"/>
+
+          <!-- 눈 깜빡임 커버 -->
+          <rect x="77" y="76" width="32" height="0" rx="7" fill="#ddeef8">
+            <animate attributeName="height" values="0;20;0" dur="5s" begin="2s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="111" y="76" width="32" height="0" rx="7" fill="#ddeef8">
+            <animate attributeName="height" values="0;20;0" dur="5s" begin="2s" repeatCount="indefinite"/>
+          </rect>
+
+          <!-- 코 -->
+          <ellipse cx="110" cy="106" rx="4" ry="3" fill="#ffb3c6" opacity="0.75"/>
+
+          <!-- 입 (U자 미소) - 살짝 올린 곡선 -->
+          <path d="M94 114 Q110 126 126 114" stroke="#ff6b9d" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <circle cx="94" cy="117" r="2.5" fill="#ffb3c6" opacity="0.7"/>
+          <circle cx="126" cy="117" r="2.5" fill="#ffb3c6" opacity="0.7"/>
+
+          <!-- 볼터치 -->
+          <ellipse cx="69" cy="112" rx="13" ry="7.5" fill="#ffb3c6" opacity="0.45"/>
+          <ellipse cx="151" cy="112" rx="13" ry="7.5" fill="#ffb3c6" opacity="0.45"/>
+
+          <!-- ── 목 ── -->
+          <rect x="100" y="136" width="20" height="15" rx="6" fill="url(#limbW)"/>
+          <line x1="106" y1="136" x2="106" y2="151" stroke="#c0ccd8" stroke-width="1.2" opacity="0.5"/>
+          <line x1="114" y1="136" x2="114" y2="151" stroke="#c0ccd8" stroke-width="1.2" opacity="0.5"/>
+
+          <!-- ── 몸통 ── -->
+          <rect x="48" y="150" width="124" height="100" rx="30" fill="url(#bodyW)" filter="url(#shadow)"/>
+          <ellipse cx="92" cy="162" rx="28" ry="7" fill="white" opacity="0.5"/>
+
+          <!-- 가슴 패널 -->
+          <rect x="68" y="166" width="84" height="52" rx="14" fill="url(#panelG)" stroke="#c4dcf0" stroke-width="1.5"/>
+          <text x="110" y="194" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#A50034">AI</text>
+          <text x="110" y="209" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#5a8ab0" letter-spacing="2">SW MASTER</text>
+
+          <!-- LED 도트 -->
+          <circle cx="74" cy="230" r="4.5" fill="#ff4d7d"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" repeatCount="indefinite"/></circle>
+          <circle cx="88" cy="230" r="4.5" fill="#ff9f1c"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" begin="0.15s" repeatCount="indefinite"/></circle>
+          <circle cx="102" cy="230" r="4.5" fill="#ffd700"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" begin="0.3s" repeatCount="indefinite"/></circle>
+          <circle cx="116" cy="230" r="4.5" fill="#5de4c7"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" begin="0.45s" repeatCount="indefinite"/></circle>
+          <circle cx="130" cy="230" r="4.5" fill="#7ecfff"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" begin="0.6s" repeatCount="indefinite"/></circle>
+          <circle cx="144" cy="230" r="4.5" fill="#ff4d7d"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" begin="0.75s" repeatCount="indefinite"/></circle>
+
+          <!-- ── 왼팔 ── -->
+          <circle cx="48" cy="165" r="13" fill="url(#jointG)"/>
+          <rect x="18" y="158" width="34" height="70" rx="17" fill="url(#limbW)" filter="url(#shadow)"/>
+          <rect x="21" y="162" width="10" height="30" rx="5" fill="white" opacity="0.45"/>
+          <circle cx="35" cy="234" r="14" fill="url(#bodyW)" stroke="#ccd8ea" stroke-width="1.5"/>
+          <ellipse cx="23" cy="228" rx="7" ry="5.5" fill="url(#limbW)" stroke="#ccd8ea" stroke-width="1"/>
+          <ellipse cx="39" cy="222" rx="4" ry="3" fill="white" opacity="0.6"/>
+          <text x="28" y="238" font-size="11" fill="#ff4d7d" opacity="0.85">♥</text>
+
+          <!-- ── 오른팔 ── -->
+          <circle cx="172" cy="165" r="13" fill="url(#jointG)"/>
+          <rect x="168" y="158" width="34" height="70" rx="17" fill="url(#limbW)" filter="url(#shadow)"/>
+          <rect x="191" y="162" width="10" height="30" rx="5" fill="white" opacity="0.45"/>
+          <circle cx="185" cy="234" r="14" fill="url(#bodyW)" stroke="#ccd8ea" stroke-width="1.5"/>
+          <ellipse cx="197" cy="228" rx="7" ry="5.5" fill="url(#limbW)" stroke="#ccd8ea" stroke-width="1"/>
+          <ellipse cx="181" cy="222" rx="4" ry="3" fill="white" opacity="0.6"/>
+          <text x="180" y="238" font-size="13" fill="#ffd700" opacity="0.9">★</text>
+
+          <!-- ── 다리 ── -->
+          <rect x="70" y="248" width="34" height="20" rx="0" fill="url(#bodyW)"/>
+          <rect x="116" y="248" width="34" height="20" rx="0" fill="url(#bodyW)"/>
+          <rect x="68" y="244" width="36" height="10" rx="5" fill="url(#limbW)"/>
+          <rect x="114" y="244" width="36" height="10" rx="5" fill="url(#limbW)"/>
+
+          <!-- 발 -->
+          <rect x="60" y="260" width="52" height="17" rx="10" fill="url(#footR)"/>
+          <rect x="108" y="260" width="52" height="17" rx="10" fill="url(#footR)"/>
+          <rect x="64" y="262" width="20" height="6" rx="3" fill="rgba(255,255,255,0.35)"/>
+          <rect x="112" y="262" width="20" height="6" rx="3" fill="rgba(255,255,255,0.35)"/>
+
+        </svg>
+        <div class="robot-ring"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 파일럿 신청 CTA -->
+  <div class="pilot-hero-note">
+    <div class="pilot-hero-inner">
+      <div class="pilot-kicker">Pilot Test · 신청 안내</div>
+      <div class="pilot-main-title">AI SW 역량인증시험 파일럿 참여자를 모집합니다</div>
+      <div class="pilot-main-copy">
+        정규 시험 시행 전, 시험 운영 및 문제 유형 검증을 위한 파일럿 시험입니다.<br>
+        새로운 AI SW 역량인증시험 기준을 먼저 경험하고, 시험 완성도를 함께 높여주세요.
+      </div>
+      <a class="pilot-cta-link" href="https://moaform.com/q/dTJNh2" target="_blank" rel="noopener">파일럿 시험 신청하기 →</a>
+      <div class="pilot-small-note">※ 신청은 선착순이 아니며, 대상자 선정 후 개별 메일로 안내됩니다.</div>
+    </div>
+  </div>
+
+  <div class="section-title">✦ 시험 개요</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">파일럿 시험 기본 정보</div>
+      <table class="guide-table">
+        <tbody>
+          <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI SW Competency Test, ASCT)</td></tr>
+          <tr><th>대상</th><td>SW개발자</td></tr>
+          <tr><th>운영 방식</th><td>온라인 원격 응시, 시험 시스템 내 AI 코딩 도구 제공</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="section-title">✦ 시험 구성 및 합격 기준</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">총 2문제 · 2시간 · 70점 이상 합격</div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-icon">⏱</div><div class="stat-label">시험 시간</div><div class="stat-value">2시간</div></div>
+        <div class="stat-card"><div class="stat-icon">🧩</div><div class="stat-label">문제 수</div><div class="stat-value">2문제</div></div>
+        <div class="stat-card"><div class="stat-icon">⚙️</div><div class="stat-label">채점 방식</div><div class="stat-value">자동 채점</div></div>
+        <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-label">합격 기준</div><div class="stat-value">70점 이상</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ 문제 유형</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">본 시험의 문제 유형은 아래와 같습니다.</div>
+      <div class="type-grid">
+        <div class="type-card"><div class="type-badge">1문항 · 50점</div><div class="type-title">코드 분석 + 단위 테스트 검증</div><div class="type-copy">주어진 코드를 분석하고, 예외·오류 경로까지 단위 테스트를 작성하여 검증하는 능력 평가</div></div>
+        <div class="type-card"><div class="type-badge">1문항 · 50점</div><div class="type-title">문제 해결 + AI 도구 활용</div><div class="type-copy">문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가</div></div>
+      </div>
+      <div class="soft-alert">※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.</div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ AI 활용 범위</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">시험 시스템 내 AI 코딩 도구 활용 가능</div>
+      <div class="ai-usage-grid">
+        <div class="ai-usage-card"><strong>🤖 AI 기반 코딩 도구 제공</strong><span>시험 시스템에서 제공되는 AI 도구를 활용할 수 있습니다.</span></div>
+        <div class="ai-usage-card"><strong>📊 토큰 사용량 확인</strong><span>시험 중 AI 도구의 토큰 사용량을 확인할 수 있습니다.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ 신청 및 응시 방법</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">파일럿 시험 신청 안내</div>
+      <table class="guide-table"><tbody>
+        <tr><th>시험 일시</th><td>2026년 7월 28일</td></tr>
+        <tr><th>응시 방법</th><td>원격 근무로 응시 (근태 품의는 SW역량강화팀 일괄 진행)</td></tr>
+        <tr><th>응시 환경</th><td>1인 독립 공간 확보 필수 (시험 중 타인 출입 불가), 휴대폰 카메라 사용 가능한 곳</td></tr>
+      </tbody></table>
+      <div class="pill-wrap"><span class="prep-pill">💻 노트북</span><span class="prep-pill">🌐 인터넷 연결</span><span class="prep-pill">📱 휴대폰</span><span class="prep-pill">📄 빈 A4용지</span><span class="prep-pill">🖊 펜</span></div>
+      <div class="soft-alert">※ 유의사항: 시스템 가이드는 파일럿 시험 대상자에게 개별 안내됩니다.</div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ FAQ</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">자주 묻는 질문</div>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q">Q. 파일럿 시험 결과를 알 수 있나요?</div><div class="faq-a">네, 결과는 개인에게 공유됩니다. 다만 공식 인증 등록(합격 명단 등재)은 정규 시험부터 적용됩니다.</div></div>
+        <div class="faq-item"><div class="faq-q">Q. AI를 사용해도 되나요?</div><div class="faq-a">시험 시스템에서 제공하는 AI 코딩 도구를 활용할 수 있습니다. 또한, 시험 환경의 공정성을 위해 개인 PC에 설치된 AI IDE 및 외부 LLM 서비스(ChatGPT 등)는 사용이 제한됩니다.</div></div>
+        <div class="faq-item"><div class="faq-q">Q. 시험에서 사용하는 프로그래밍 언어는 무엇인가요?</div><div class="faq-a">본 시험은 특정 프로그래밍 언어에 대한 숙련도를 평가하기보다, SW테스트 및 검증, 문제 해결 능력과 AI도구를 활용한 SW 개발 역량을 중심으로 평가합니다. 시험에서 사용하는 언어는 고정되어 있지 않으며, 문제 유형 및 시험 목적에 따라 매 시험마다 달라질 수 있습니다.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pilot-hero-note" style="padding:28px 26px;margin-bottom:44px;">
+    <div class="pilot-hero-inner">
+      <div class="pilot-kicker">Contact</div>
+      <div class="pilot-main-title" style="font-size:24px;">문의</div>
+      <div class="pilot-main-copy" style="margin-bottom:0;"><strong>역량인증시험(lgswtest@lge.com)</strong></div>
+    </div>
+  </div>
+
+<!-- 푸터 -->
+  <div class="footer-note">
+    LG Electronics · SW역량강화팀
+  </div>
+
+</div><!-- /page-wrap -->
+
+<script>
+  // 파티클 생성
+  const container = document.getElementById('particles');
+  const colors = ['#A50034','#ff2d6b','#ffb3c6','#ff6b35','#ffd6df'];
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 1;
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${Math.random()*12+8}s;
+      animation-delay:${Math.random()*10}s;
+    `;
+    container.appendChild(p);
+  }
+</script>
+
 </body>
 </html>
