@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI SW 역량인증시험 파일럿 시험 신청 안내 | LG전자</title>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('v') !== 'pilot-root-20260701') {
+        window.location.replace('./video_event_preview.html');
+      }
+    })();
+  </script>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 
@@ -419,7 +427,7 @@
     .pilot-hero-note{background:linear-gradient(135deg,#fff8fa 0%,#fff3e9 100%);border:2px solid rgba(165,0,52,0.22);border-radius:28px;padding:36px 34px;margin-bottom:44px;text-align:center;box-shadow:0 12px 34px rgba(165,0,52,0.10);position:relative;overflow:hidden}
     .pilot-hero-note::before{content:'';position:absolute;inset:-60% auto auto -40%;width:180%;height:180%;background:conic-gradient(from 0deg,transparent 0deg,rgba(255,45,107,0.05) 55deg,transparent 110deg);animation:rotate 12s linear infinite}
     .pilot-hero-inner{position:relative;z-index:1}.pilot-kicker{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:999px;background:rgba(165,0,52,0.08);border:1px solid rgba(165,0,52,0.16);color:var(--lg-red);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
-    .pilot-main-title{font-size:clamp(24px,4.5vw,36px);font-weight:900;line-height:1.35;color:var(--lg-red);margin-bottom:12px;letter-spacing:-0.02em}.pilot-main-copy{color:var(--text-sub);font-size:15px;line-height:1.85;max-width:680px;margin:0 auto 20px;font-weight:600}
+    .pilot-main-title{font-size:clamp(24px,4.5vw,36px);font-weight:900;line-height:1.35;color:var(--lg-red);margin-bottom:6px;letter-spacing:-0.02em}.pilot-date-note{font-size:13px;color:var(--text-sub);font-weight:800;margin-bottom:10px}.pilot-main-copy{color:var(--text-sub);font-size:15px;line-height:1.85;max-width:680px;margin:0 auto 20px;font-weight:600}
     .pilot-cta-link{display:inline-flex;align-items:center;justify-content:center;margin-top:8px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,var(--lg-dark-red),var(--lg-red),var(--lg-pink));color:#fff;text-decoration:none;font-size:15px;font-weight:900;box-shadow:0 10px 26px rgba(165,0,52,0.25);transition:transform .22s,box-shadow .22s}.pilot-cta-link:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(165,0,52,0.32)}.pilot-small-note{margin-top:12px;font-size:12px;color:var(--text-sub);font-weight:700}
     .info-section{margin-bottom:44px}.info-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:24px;padding:30px 28px;box-shadow:0 8px 30px rgba(165,0,52,0.06);position:relative;overflow:hidden}.info-card::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lg-red),var(--lg-pink),var(--accent))}
     .info-title{font-size:24px;font-weight:900;color:var(--text-main);margin-bottom:18px;letter-spacing:-0.02em}.info-desc{font-size:14px;color:var(--text-sub);line-height:1.8;margin-bottom:18px;font-weight:600}
@@ -428,6 +436,8 @@
     .soft-alert{margin-top:16px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.18);border-radius:16px;padding:14px 16px;color:var(--text-sub);font-size:13px;font-weight:700;line-height:1.7}
     .guide-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:14px}.guide-table th{width:155px;text-align:left;background:rgba(165,0,52,0.055);color:var(--text-main);padding:14px 15px;border-bottom:1px solid var(--border);font-weight:900;vertical-align:top}.guide-table td{padding:14px 15px;border-bottom:1px solid var(--border);color:var(--text-sub);font-weight:600;line-height:1.75}.guide-table tr:last-child th,.guide-table tr:last-child td{border-bottom:none}
     .pill-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.prep-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(165,0,52,0.045);border:1px solid rgba(165,0,52,0.12);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:800;color:var(--text-main)}
+    .objective-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}.objective-card{background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.10);border-radius:16px;padding:16px 14px}.objective-head{font-size:16px;font-weight:900;color:var(--text-main);margin-bottom:8px}.objective-copy{font-size:14px;line-height:1.75;color:var(--text-sub);font-weight:600}.objective-note{margin-top:16px;background:rgba(165,0,52,0.06);border:1px solid rgba(165,0,52,0.14);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--text-sub);font-weight:700}
+    .intro-highlight{margin-top:14px;background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.12);border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.85;color:var(--text-sub);font-weight:600}
     .ai-usage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:16px}.ai-usage-card{background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.10);border-radius:16px;padding:18px 16px}.ai-usage-card strong{display:block;color:var(--text-main);margin-bottom:6px;font-size:14px}.ai-usage-card span{color:var(--text-sub);font-size:13px;line-height:1.65;font-weight:600}
     .faq-list{border-top:1px solid var(--border)}.faq-item{padding:18px 0;border-bottom:1px solid var(--border)}.faq-q{font-size:15px;font-weight:900;color:var(--text-main);margin-bottom:8px}.faq-a{font-size:14px;color:var(--text-sub);line-height:1.75;font-weight:600}
     @media(max-width:600px){.pilot-hero-note,.info-card{padding:26px 20px}.guide-table th{width:118px}.pilot-main-title{font-size:25px}}
@@ -677,6 +687,7 @@
     <div class="pilot-hero-inner">
       <div class="pilot-kicker">Pilot Test · 신청 안내</div>
       <div class="pilot-main-title">AI SW 역량인증시험 파일럿 참여자를 모집합니다</div>
+      <div class="pilot-date-note">신청기간 : 7월13일(월) ~ 7월15일(수)</div>
       <div class="pilot-main-copy">
         정규 시험 시행 전, 시험 운영 및 문제 유형 검증을 위한 파일럿 시험입니다.<br>
         새로운 AI SW 역량인증시험 기준을 먼저 경험하고, 시험 완성도를 함께 높여주세요.
@@ -685,6 +696,52 @@
       <div class="pilot-small-note">※ 신청은 선착순이 아니며, 대상자 선정 후 개별 메일로 안내됩니다.</div>
     </div>
   </div>
+
+  <div class="section-title">✦ 신청 및 응시 방법</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">파일럿 시험 신청 안내</div>
+      <table class="guide-table"><tbody>
+        <tr><th>시험 일시</th><td>2026년 7월 31일 금요일 오전10시~12시 (2시간)</td></tr>
+        <tr><th>응시 방법</th><td>원격 근무로 응시 (근태 품의는 SW역량강화팀 일괄 진행)</td></tr>
+        <tr><th>응시 환경</th><td>1인 독립 공간 확보 필수 (시험 중 타인 출입 불가), 휴대폰 카메라 사용 가능한 곳</td></tr>
+      </tbody></table>
+      <div class="pill-wrap"><span class="prep-pill">💻 노트북</span><span class="prep-pill">🌐 인터넷 연결</span><span class="prep-pill">📱 휴대폰</span><span class="prep-pill">📄 빈 A4용지</span><span class="prep-pill">🖊 펜</span></div>
+      <div class="soft-alert">※ 유의사항: 시스템 가이드는 파일럿 시험 대상자에게 개별 안내됩니다.</div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ 도입 배경</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">🚀 AI 개발 패러다임 변화</div>
+      <div class="info-desc">
+        AI를 활용한 SW개발이 빠르게 확산되면서, SW개발자에게 요구되는 역할도 함께 변화하고 있습니다.<br>
+        이제 개발자의 핵심은 코드 작성 자체를 넘어, AI를 개발 도구로 활용해 설계·검증 품질을 주도하는 것입니다.
+      </div>
+      <div class="intro-highlight">
+        AI가 생성한 코드와 결과물의 품질을 판단하고 문제를 해결하는 역량이 새로운 경쟁력인 만큼,<br>
+        이를 객관적으로 확인할 수 있도록 AI SW 역량인증시험을 신설합니다.
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">✦ 시험 목적</div>
+  <section class="info-section">
+    <div class="info-card">
+      <div class="info-title">🎯 무엇을 검증하나요?</div>
+      <div class="info-desc">
+        본 시험은 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다.<br>
+        사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.
+      </div>
+      <div class="objective-grid">
+        <div class="objective-card"><div class="objective-head">💡 문제 해결</div><div class="objective-copy">복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력</div></div>
+        <div class="objective-card"><div class="objective-head">🧪 SW 테스트·검증</div><div class="objective-copy">코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력</div></div>
+        <div class="objective-card"><div class="objective-head">🤖 AI 도구 활용 개발 수행</div><div class="objective-copy">사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력</div></div>
+      </div>
+      <div class="objective-note">※ 시험 구성, 문제 유형은 2차 안내에서 공개합니다.</div>
+    </div>
+  </section>
 
   <div class="section-title">✦ 시험 개요</div>
   <section class="info-section">
@@ -733,20 +790,6 @@
         <div class="ai-usage-card"><strong>🤖 AI 기반 코딩 도구 제공</strong><span>시험 시스템에서 제공되는 AI 도구를 활용할 수 있습니다.</span></div>
         <div class="ai-usage-card"><strong>📊 토큰 사용량 확인</strong><span>시험 중 AI 도구의 토큰 사용량을 확인할 수 있습니다.</span></div>
       </div>
-    </div>
-  </section>
-
-  <div class="section-title">✦ 신청 및 응시 방법</div>
-  <section class="info-section">
-    <div class="info-card">
-      <div class="info-title">파일럿 시험 신청 안내</div>
-      <table class="guide-table"><tbody>
-        <tr><th>시험 일시</th><td>2026년 7월 28일</td></tr>
-        <tr><th>응시 방법</th><td>원격 근무로 응시 (근태 품의는 SW역량강화팀 일괄 진행)</td></tr>
-        <tr><th>응시 환경</th><td>1인 독립 공간 확보 필수 (시험 중 타인 출입 불가), 휴대폰 카메라 사용 가능한 곳</td></tr>
-      </tbody></table>
-      <div class="pill-wrap"><span class="prep-pill">💻 노트북</span><span class="prep-pill">🌐 인터넷 연결</span><span class="prep-pill">📱 휴대폰</span><span class="prep-pill">📄 빈 A4용지</span><span class="prep-pill">🖊 펜</span></div>
-      <div class="soft-alert">※ 유의사항: 시스템 가이드는 파일럿 시험 대상자에게 개별 안내됩니다.</div>
     </div>
   </section>
 
