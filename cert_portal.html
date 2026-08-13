@@ -61,8 +61,10 @@
     .intro-table td{padding:10px 12px;color:var(--sub);border-bottom:1px solid var(--border);line-height:1.65}
     .intro-table tr:last-child th,.intro-table tr:last-child td{border-bottom:none}
     .intro-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-    .intro-note{background:#fff;border:1.5px solid rgba(165,0,52,0.16);border-radius:14px;padding:16px 16px;font-size:15px;color:#434b69;line-height:1.9;box-shadow:0 5px 14px rgba(165,0,52,0.05)}
-    .intro-note .note-title{display:block;font-size:19px;line-height:1.25;color:var(--dark-red);font-weight:900;letter-spacing:-0.01em}
+    .intro-note{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(165,0,52,0.05)}
+    .intro-note .note-title{display:block;font-size:17px;line-height:1.25;color:var(--text);font-weight:900;letter-spacing:-0.01em;background:rgba(165,0,52,0.055);padding:12px 14px;border-bottom:1px solid var(--border)}
+    .intro-note .note-body{padding:14px 14px;font-size:15px;color:#434b69;line-height:1.88}
+    .intro-note .note-body strong{color:#1f2438}
 
     /* 히어로 — 세로 중앙 정렬 */
     .hero{max-width:1080px;margin:0 auto;padding:72px 32px 20px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
@@ -433,23 +435,29 @@
     </tbody></table>
     <div class="intro-grid">
       <div class="intro-note">
-        <strong class="note-title">&lt;시험 목적&gt;</strong><br><br>
-        - 무엇을 검증하나요? 본 시험은 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.<br><br>
-        1. 문제 해결: 복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력<br><br>
-        2. SW 테스트·검증: 코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력<br><br>
-        3. AI 도구 활용 개발 수행: 사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력
+        <strong class="note-title">시험 목적</strong>
+        <div class="note-body">
+          - 무엇을 검증하나요? 본 시험은 <strong>AI 시대 SW개발자가 갖추어야 할 실질 역량</strong>을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.<br><br>
+          1. <strong>문제 해결</strong>: 복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력<br><br>
+          2. <strong>SW 테스트·검증</strong>: 코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력<br><br>
+          3. <strong>AI 도구 활용 개발 수행</strong>: 사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력
+        </div>
       </div>
       <div class="intro-note">
-        <strong class="note-title">&lt;문제 유형 예시&gt;</strong><br><br>
-        ※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.<br><br>
-        -문항1. 코드 분석 + 검증: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가<br><br>
-        -문항2. 문제해결 + AI 도구 활용 : 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가<br><br>
-        ※ 문제는 회차마다 C, C++ 등 다양한 언어로 출제되며, 해당 언어에 익숙하지 않아도 AI 도구를 활용해 풀이할 수 있도록 설계되었습니다.
+        <strong class="note-title">문제 유형 예시</strong>
+        <div class="note-body">
+          ※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.<br><br>
+          -<strong>문항1. 코드 분석 + 검증</strong>: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가<br><br>
+          -<strong>문항2. 문제해결 + AI 도구 활용</strong> : 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가<br><br>
+          ※ 문제는 회차마다 C, C++ 등 다양한 언어로 출제되며, 해당 언어에 익숙하지 않아도 AI 도구를 활용해 풀이할 수 있도록 설계되었습니다.
+        </div>
       </div>
       <div class="intro-note">
-        <strong class="note-title">&lt;응시 안내&gt;</strong><br><br>
-        - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
-        - 크레딧 소진 방지를 위해 필요한 질문을 효율적으로 구성해 주세요.
+        <strong class="note-title">응시 안내</strong>
+        <div class="note-body">
+          - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
+          - <strong>크레딧 소진 방지</strong>를 위해 필요한 질문을 효율적으로 구성해 주세요.
+        </div>
       </div>
     </div>
   </article>
