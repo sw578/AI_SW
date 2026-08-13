@@ -45,14 +45,22 @@
     .cs-box p{font-size:14px;color:var(--sub);line-height:1.75;margin-bottom:24px}
     .cs-close{background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;border:none;border-radius:10px;padding:11px 28px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:filter .18s}
     .cs-close:hover{filter:brightness(1.1)}
-    .intro-box{background:#fff;border-radius:24px;padding:30px 26px 24px;max-width:760px;width:92%;max-height:84vh;overflow:auto;box-shadow:0 24px 64px rgba(165,0,52,0.18);position:relative;animation:csIn .25s cubic-bezier(.34,1.56,.64,1)}
-    .intro-box h3{font-size:24px;font-weight:900;margin-bottom:10px;color:var(--text)}
-    .intro-box h4{font-size:18px;font-weight:900;margin:16px 0 8px;color:var(--red)}
-    .intro-box p{font-size:14px;color:var(--sub);line-height:1.8}
+    .home-view{display:block}
+    .intro-view{display:none;max-width:1080px;margin:0 auto;padding:42px 32px 90px;position:relative;z-index:1}
+    body.show-intro .home-view{display:none}
+    body.show-intro .intro-view{display:block}
+    .intro-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .intro-title{font-size:34px;font-weight:900;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .intro-back{background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 12px;color:var(--text);font-size:13px;font-weight:800;cursor:pointer}
+    .intro-card{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:24px 20px;box-shadow:0 8px 28px rgba(165,0,52,0.06);margin-bottom:14px}
+    .intro-card h3{font-size:22px;font-weight:900;margin-bottom:10px;color:var(--text)}
+    .intro-card h4{font-size:17px;font-weight:900;margin:14px 0 8px;color:var(--red)}
+    .intro-card p{font-size:14px;color:var(--sub);line-height:1.8}
     .intro-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:10px}
     .intro-table th{width:130px;text-align:left;padding:10px 12px;background:rgba(165,0,52,0.055);font-weight:800;border-bottom:1px solid var(--border)}
-    .intro-table td{padding:10px 12px;color:var(--sub);border-bottom:1px solid var(--border)}
+    .intro-table td{padding:10px 12px;color:var(--sub);border-bottom:1px solid var(--border);line-height:1.65}
     .intro-table tr:last-child th,.intro-table tr:last-child td{border-bottom:none}
+    .intro-note{margin-top:12px;background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.1);border-radius:12px;padding:12px 12px;font-size:13px;color:var(--sub);line-height:1.75}
 
     /* 히어로 — 세로 중앙 정렬 */
     .hero{max-width:1080px;margin:0 auto;padding:72px 32px 20px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
@@ -149,37 +157,14 @@
   </div>
 </div>
 
-<!-- 시험소개 모달 -->
-<div class="cs-overlay" id="introOverlay" role="dialog" aria-modal="true">
-  <div class="intro-box">
-    <h3>시험소개</h3>
-    <h4>About AICT</h4>
-    <p>AICT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현/검증/개선하는 역량을 종합적으로 평가합니다.</p>
-    <h4>시험 개요</h4>
-    <table class="intro-table"><tbody>
-      <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, AICT)</td></tr>
-      <tr><th>시험 대상</th><td>SW개발직무 또는 희망하는 모든 인원</td></tr>
-      <tr><th>시험 시간</th><td>1시간~2시간 (추후 확정 공지 예정)</td></tr>
-      <tr><th>문항 수</th><td>2문항</td></tr>
-      <tr><th>시험 형태</th><td>실기 Only</td></tr>
-      <tr><th>응시 방식</th><td>온라인 원격 응시</td></tr>
-      <tr><th>AI 도구</th><td>제공된 AI 도구 활용</td></tr>
-      <tr><th>합격기준</th><td>70점 이상</td></tr>
-    </tbody></table>
-    <div style="margin-top:16px;text-align:right">
-      <button class="cs-close" onclick="document.getElementById('introOverlay').classList.remove('open')">닫기</button>
-    </div>
-  </div>
-</div>
-
 <nav class="gnb">
   <div class="gnb-inner">
-    <a class="gnb-brand" href="/AI_SW/cert_portal.html">
+    <a class="gnb-brand" href="/AI_SW/cert_portal.html" onclick="if(document.body.classList.contains('show-intro')){event.preventDefault();closeIntroPage();}">
       <div class="gnb-logo">AI</div>
       <span class="gnb-name">AI SW <span>역량인증시험</span></span>
     </a>
     <div class="gnb-menu">
-      <a href="#" onclick="event.preventDefault();document.getElementById('introOverlay').classList.add('open')">시험소개</a>
+      <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">응시가이드<span class="cs-tag">SOON</span></a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정<span class="cs-tag">SOON</span></a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소<span class="cs-tag">SOON</span></a>
@@ -189,6 +174,7 @@
   </div>
 </nav>
 
+<div class="home-view" id="homeView">
 <section class="hero">
   <div class="hero-text">
     <div class="hero-badge">LG전자</div>
@@ -379,7 +365,7 @@
 <section class="cards-section">
   <div class="sec-eyebrow" style="margin-bottom:18px">&#x2756; 주요 메뉴</div>
   <div class="cards-grid">
-    <a class="menu-card" href="#" onclick="event.preventDefault();document.getElementById('introOverlay').classList.add('open')">
+    <a class="menu-card" href="#" onclick="event.preventDefault();openIntroPage()">
       <span class="card-icon">&#x1F4CB;</span>
       <h3>시험소개</h3>
       <p>About AICT와 시험개요를 확인할 수 있습니다.</p>
@@ -422,12 +408,43 @@
     </div>
   </div>
 </section>
+</div>
+
+<section class="intro-view" id="introView">
+  <div class="intro-head">
+    <h2 class="intro-title">시험소개</h2>
+    <button class="intro-back" onclick="closeIntroPage()">메인으로</button>
+  </div>
+  <article class="intro-card">
+    <h3>About AICT</h3>
+    <p>AICT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현/검증/개선하는 역량을 종합적으로 평가합니다.</p>
+    <h4>시험 개요</h4>
+    <table class="intro-table"><tbody>
+      <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, AICT)</td></tr>
+      <tr><th>시험 대상</th><td>SW개발직무 또는 희망하는 모든 인원</td></tr>
+      <tr><th>시험 시간</th><td>1시간~2시간 (추후 확정 공지 예정)</td></tr>
+      <tr><th>문항 수</th><td>2문항</td></tr>
+      <tr><th>시험 형태</th><td>실기 Only</td></tr>
+      <tr><th>응시 방식</th><td>온라인 원격 응시</td></tr>
+      <tr><th>AI 도구</th><td>제공된 AI 도구 활용</td></tr>
+      <tr><th>합격기준</th><td>70점 이상</td></tr>
+    </tbody></table>
+    <div class="intro-note">
+      <strong>&lt;시험 목적&gt;</strong><br>
+      복잡한 문제 해결, SW 테스트/검증, AI 도구 활용 개발 수행 역량을 종합 평가합니다.<br><br>
+      <strong>&lt;문제 유형 예시&gt;</strong><br>
+      문항1. 코드 분석 + 검증, 문항2. 문제해결 + AI 도구 활용<br><br>
+      <strong>&lt;응시 안내&gt;</strong><br>
+      AI 크레딧(토큰) 제한 내에서 응시합니다.
+    </div>
+  </article>
+</section>
 
 <footer class="footer">
   <div class="footer-inner">
     <span>LG Electronics &middot; SW역량강화팀</span>
     <div class="footer-menu">
-      <a href="#" onclick="event.preventDefault();document.getElementById('introOverlay').classList.add('open')">시험소개</a>
+      <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">응시가이드</a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정</a>
       <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소</a>
@@ -438,6 +455,26 @@
 </footer>
 
 <script>
+function openIntroPage(){
+  if(document.body.classList.contains('show-intro')) return;
+  document.body.classList.add('show-intro');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.pushState({portalView:'intro'},'',window.location.href);
+}
+function closeIntroPage(){
+  if(history.state&&history.state.portalView==='intro'){
+    history.back();
+    return;
+  }
+  document.body.classList.remove('show-intro');
+}
+window.addEventListener('popstate',()=>{
+  if(history.state&&history.state.portalView==='intro'){
+    document.body.classList.add('show-intro');
+  }else{
+    document.body.classList.remove('show-intro');
+  }
+});
 // 버블 생성
 (function(){
   const wrap = document.getElementById('bubbles');
@@ -474,13 +511,10 @@
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){
       document.getElementById('csOverlay').classList.remove('open');
-      document.getElementById('introOverlay').classList.remove('open');
+      document.body.classList.remove('show-intro');
     }
   });
   document.getElementById('csOverlay').addEventListener('click',function(e){
-    if(e.target===this) this.classList.remove('open');
-  });
-  document.getElementById('introOverlay').addEventListener('click',function(e){
     if(e.target===this) this.classList.remove('open');
   });
 })();
