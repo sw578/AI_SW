@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>응시가이드 | AI SW 역량인증시험 | LG전자</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    :root {
+      --red:#A50034; --dark-red:#7a0026; --pink:#ff2d6b; --accent:#ff6b35;
+      --bg:#f9f5f6; --surface:#ffffff; --text:#1a1a2e; --sub:#5a5a7a;
+      --border:rgba(165,0,52,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .bg-layer .grid{width:100%;height:100%;background-image:linear-gradient(rgba(165,0,52,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(165,0,52,0.045) 1px,transparent 1px);background-size:52px 52px;animation:gridMove 28s linear infinite}
+    @keyframes gridMove{to{background-position:52px 52px}}
+    .bg-layer .glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 10% 8%,rgba(165,0,52,0.07) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 88% 90%,rgba(255,45,107,0.05) 0%,transparent 65%)}
+    .gnb{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .gnb-inner{max-width:1080px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .gnb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+    .gnb-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--red),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900}
+    .gnb-name{font-size:15px;font-weight:800}
+    .gnb-name span{color:var(--red)}
+    .gnb-menu{display:flex;align-items:center;gap:4px}
+    .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px}
+    .gnb-menu a.active,.gnb-menu a:hover{background:rgba(165,0,52,0.08);color:var(--red)}
+
+    .hero{max-width:1080px;margin:0 auto;padding:58px 32px 20px;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:14px}
+    .hero h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;line-height:1.15;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+    .hero p{color:var(--sub);line-height:1.8;max-width:760px;font-size:15px}
+
+    .page{max-width:1080px;margin:0 auto;padding:14px 32px 90px;position:relative;z-index:1}
+    .notice{background:rgba(165,0,52,0.05);border:1px solid rgba(165,0,52,0.14);border-left:4px solid var(--red);border-radius:12px;padding:14px 16px;color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:16px}
+
+    .accordion{display:grid;gap:12px}
+    .acc-item{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(165,0,52,0.06)}
+    .acc-btn{width:100%;text-align:left;border:none;background:#fff;padding:18px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;font:inherit}
+    .acc-title{font-size:17px;font-weight:800;color:var(--text)}
+    .acc-sub{margin-top:4px;font-size:13px;color:var(--sub);font-weight:500}
+    .acc-arrow{color:var(--red);font-size:19px;font-weight:900;transition:transform .18s}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .24s ease;padding:0 18px}
+    .acc-content{padding:0 0 18px;color:var(--sub);font-size:14px;line-height:1.85}
+    .acc-item.open .acc-body{max-height:1100px}
+    .acc-item.open .acc-arrow{transform:rotate(90deg)}
+    .acc-list{padding-left:18px}
+    .step-list{padding-left:20px}
+    .step-list li+li{margin-top:8px}
+    .sub-list{padding-left:18px;margin-top:6px}
+    .sub-list li+li{margin-top:4px}
+    .guide-callout{background:rgba(165,0,52,0.05);border:1px solid rgba(165,0,52,0.13);border-left:4px solid var(--red);border-radius:10px;padding:10px 12px;margin:10px 0;color:var(--sub)}
+    .emph{font-weight:800;color:var(--text)}
+    .emph-red{font-weight:900;color:var(--red)}
+
+    .footer{border-top:1px solid var(--border);position:relative;z-index:1}
+    .footer-inner{max-width:1080px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
+    .footer-menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .footer-menu a{text-decoration:none;color:var(--sub)}
+    .footer-menu a:hover{color:var(--red)}
+
+    @media(max-width:760px){
+      .gnb-inner{padding:0 16px}
+      .hero,.page{padding-left:16px;padding-right:16px}
+      .footer-inner{padding-left:16px;padding-right:16px;flex-direction:column;align-items:flex-start}
+      .gnb-menu a{padding:8px 10px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+
+<nav class="gnb">
+  <div class="gnb-inner">
+    <a class="gnb-brand" href="./cert_portal.html">
+      <div class="gnb-logo">AI</div>
+      <span class="gnb-name">AI SW <span>역량인증시험</span></span>
+    </a>
+    <div class="gnb-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a class="active" href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">📌 응시 안내</div>
+  <h1>응시가이드</h1>
+  <p>아래 항목을 클릭하면 상세 정보가 펼쳐집니다. 시험 전 필수 준비사항과 유의사항을 순서대로 확인해 주세요.</p>
+</section>
+
+<main class="page">
+  <div class="notice">안내문 기준으로 운영 정책이 업데이트될 수 있으며, 본 페이지는 최신 기준으로 수시 갱신됩니다. <span class="emph-red">중요 변경사항은 즉시 확인해 주세요.</span></div>
+
+  <section class="accordion" id="guideAccordion">
+    <article class="acc-item open">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🎒 필수 준비물</div><div class="acc-sub">응시 전 반드시 준비해야 할 항목</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <div class="guide-callout">
+          <span class="emph-red">본 시험은 설치형 브라우저(Devth 앱)를 통해서만 응시 가능합니다.</span>
+        </div>
+        <ul class="acc-list">
+          <li><span class="emph">사진이 포함된 신분증</span>: 주민등록증, 운전면허증, 여권, 사원증 중 선택</li>
+          <li>화상 카메라가 연결된 PC 또는 노트북(개인 로컬 환경에서 응시)</li>
+          <li><span class="emph">모바일기기 1대</span>(모바일 카메라 연결용)</li>
+          <li>필기구</li>
+          <li>사용하지 않은 낱장 종이(A4 1~2장)</li>
+          <li><span class="emph-red">Devth 앱 설치 완료</span></li>
+        </ul>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🛠️ 응시환경점검 기간 및 방법</div><div class="acc-sub">사전 점검 일정과 절차</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <ol class="step-list">
+          <li>
+            <span class="emph">사전 점검 기간</span>
+            <ul class="sub-list">
+              <li>사전점검 안내 메일 수신 시부터 시험 전 날(목요일)까지</li>
+              <li><span class="emph-red">웹캠/모니터 공유/휴대폰 연결을 미리 확인하지 않아 시험 당일 이슈가 발생하면 기술지원이 어려울 수 있습니다.</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="emph">사전 점검 방법</span>
+            <ul class="sub-list">
+              <li>로컬 PC에 Devth 앱 설치 링크를 통해 설치 진행(메일 안내 예정)</li>
+              <li>설치 완료 후 Devth 앱 실행, 평가 코드와 로그인 정보 입력하여 접속</li>
+              <li><span class="emph">ID/PW 확인</span>(시험 당일 동일 ID/PW 사용)</li>
+            </ul>
+          </li>
+          <li>
+            <span class="emph">대기실 입장 버튼 클릭</span>
+            <ul class="sub-list">
+              <li>화상카메라, 모바일카메라, 모니터 공유 설정 확인</li>
+              <li>연결 문제가 있는 경우 사이트 하단 1:1 문의하기로 문의</li>
+              <li>가이드 안내 순서에 따라 점검 진행</li>
+            </ul>
+          </li>
+          <li><span class="emph-red">시험 당일 오전 10시 전까지</span> 대기실 입장 및 시스템 설정 완료 후, 10시 정각에 시험실 입장하기 버튼 클릭</li>
+          <li><span class="emph-red">지각자 응시 불가</span></li>
+        </ol>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">💻 PC 및 네트워크 권장 사양</div><div class="acc-sub">원활한 응시를 위한 권장 성능</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <ul class="acc-list">
+          <li>메모리 8GB 이상, 듀얼 코어 이상 CPU 권장</li>
+          <li>브라우저: 최신 Chrome 또는 Edge</li>
+          <li>업로드/다운로드 모두 안정적인 네트워크 환경 유지</li>
+        </ul>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🚨 부정행위 및 금지행위</div><div class="acc-sub">공정한 시험 운영을 위한 기준</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <ul class="acc-list">
+          <li><span class="emph-red">대리 응시, 답안 공유, 허용되지 않은 외부 협업은 금지됩니다.</span></li>
+          <li><span class="emph-red">시험 시스템 또는 감독 정책을 우회하는 행위는 금지됩니다.</span></li>
+          <li>위반 시 규정에 따라 <span class="emph-red">응시 무효</span> 또는 후속 조치가 적용됩니다.</li>
+        </ul>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🕒 시험 당일 근태</div><div class="acc-sub">연구원 근태 처리 가이드</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <div class="guide-callout">
+          <span class="emph-red">원격근무 시스템 입력 안내</span>: AI SW 역량인증시험 파일럿 응시를 위한 원격근무는 본사 노경과의 협의에 따라 별도 재택 품의 승인 없이 진행됩니다.
+          단, 시험 응시 전 <span class="emph">조직책임자(팀장)에게 원격근무를 통한 시험 응시 예정임을 공유</span>한 후 근태를 입력해 주시기 바랍니다.
+        </div>
+        <p><strong class="emph">📌 근태 시스템 입력 방법</strong></p>
+        <p><span class="emph">[통합 근태 신청 > 근무 > 원격근무 > 신청시간 : 전일]</span> 입력 후 사유에 <span class="emph-red">AI SW 역량인증시험 응시</span> 작성</p>
+      </div></div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>LG Electronics · SW역량강화팀</span>
+    <div class="footer-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items = document.querySelectorAll('#guideAccordion .acc-item');
+  items.forEach(item=>{
+    const btn = item.querySelector('.acc-btn');
+    btn.addEventListener('click',()=>{
+      const willOpen = !item.classList.contains('open');
+      items.forEach(el=>el.classList.remove('open'));
+      if(willOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
