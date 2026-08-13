@@ -104,6 +104,8 @@
     .what-heading{font-size:clamp(24px,3.5vw,38px);font-weight:900;line-height:1.2;margin-bottom:16px}
     .what-body{font-size:15px;color:var(--sub);line-height:1.9}
     .about-main-title{font-size:clamp(34px,5vw,56px);font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text)}
+    .what-body-emphasis{font-size:18px;line-height:1.95;color:#2b3150;font-weight:800}
+    .asct-note{display:inline-block;font-size:19px;font-weight:900;color:var(--red);letter-spacing:-0.01em}
 
     /* 카드 그리드 */
     .cards-section{max-width:1080px;margin:0 auto;padding:0 32px 100px;position:relative;z-index:1}
@@ -357,12 +359,12 @@
 <section class="what">
   <div class="what-inner">
     <div>
-      <div class="sec-eyebrow">&#x2756; About AICT</div>
-      <h2 class="about-main-title"><strong>About AICT</strong></h2>
+      <div class="sec-eyebrow">&#x2756; About ASCT</div>
+      <h2 class="about-main-title"><strong>About ASCT</strong></h2>
     </div>
-    <p class="what-body">
-      AICT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다.
-      사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현/검증/개선하는 역량을 종합적으로 평가합니다.
+    <p class="what-body what-body-emphasis">
+      <strong>ASCT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현/검증/개선하는 역량을 종합적으로 평가합니다.</strong><br><br>
+      <strong class="asct-note">* ASCT : AI Software Competency Test</strong>
     </p>
   </div>
 </section>
@@ -373,7 +375,7 @@
     <a class="menu-card" href="#" onclick="event.preventDefault();openIntroPage()">
       <span class="card-icon">&#x1F4CB;</span>
       <h3>시험소개</h3>
-      <p>About AICT와 시험개요를 확인할 수 있습니다.</p>
+      <p>About ASCT와 시험개요를 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
     </a>
     <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
