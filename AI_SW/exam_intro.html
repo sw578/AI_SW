@@ -172,9 +172,11 @@
     </a>
     <div class="gnb-menu">
       <a href="./exam_intro.html">시험소개</a>
-      <a href="./exam_guide.html">응시가이드</a>
-      <a href="./exam_schedule.html">시험일정</a>
-      <a href="./faq.html">FAQ</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">응시가이드<span class="cs-tag">SOON</span></a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정<span class="cs-tag">SOON</span></a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소<span class="cs-tag">SOON</span></a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험결과<span class="cs-tag">SOON</span></a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">FAQ<span class="cs-tag">SOON</span></a>
     </div>
   </div>
 </nav>
@@ -194,73 +196,18 @@
     <div class="summary-box"><p>AICT : AI Software Competency Test</p></div>
   </article>
 
-  <div class="sec-eyebrow">&#x2756; 도입 배경</div>
-  <article class="intro-card">
-    <h2>🚀 AI 개발 패러다임 변화</h2>
-    <p>AI를 활용한 SW개발이 빠르게 확산되면서, SW개발자에게 요구되는 역할도 함께 변화하고 있습니다.</p>
-    <p>이제 개발자의 핵심은 코드 작성 자체를 넘어, AI를 개발 도구로 활용해 설계·검증·품질을 주도하는 것입니다.</p>
-    <div class="summary-box"><p>AI가 생성한 코드와 결과물의 품질을 판단하고 문제를 해결하는 역량이 새로운 경쟁력인 만큼,<br>이를 객관적으로 확인할 수 있도록 AI SW 역량인증시험을 신설합니다.</p></div>
-  </article>
-
-  <div class="sec-eyebrow">&#x2756; 시험 목적</div>
-  <article class="intro-card">
-    <h2>🎯 무엇을 검증하나요?</h2>
-    <p>본 시험은 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다.</p>
-    <p>사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.</p>
-    <div class="mini-list">
-      <div class="mini-item"><strong>💡 문제 해결</strong>복잡한 문제를 분석하고 다양한 대안을 검토해<br>최적의 해결책을 도출·실행하는 능력</div>
-      <div class="mini-item"><strong>🧪 SW 테스트·검증</strong>코드의 정상/예외 경로를 테스트로 검증하고<br>AI 산출물의 품질을 판단·보완하는 능력</div>
-      <div class="mini-item"><strong>🤖 AI 도구 활용 개발 수행</strong>사람이 방향을 설계하고 AI를 활용해<br>구현·검증·개선을 효과적으로 수행하는 능력</div>
-    </div>
-    <div class="note-box">※ 시험 구성, 문제 유형은 2차 안내에서 공개합니다.</div>
-  </article>
-
-  <div class="sec-eyebrow">&#x2756; 기대 효과</div>
-  <article class="intro-card">
-    <h2>✨ 기대 효과</h2>
-    <div class="mini-list">
-      <div class="mini-item"><strong>🏢 조직</strong>AI 시대 SW개발자에게 필요한 기본 역량 기준을<br>수립하고, 육성 방향을 구체화</div>
-      <div class="mini-item"><strong>🧑‍💻 개발자</strong>실무에서 바로 활용 가능한 테스팅·문제해결 역량을<br>점검하고, 성장 방향을 확인</div>
-      <div class="mini-item"><strong>📌 HR 활용</strong>진급최소자격요건 적용 (SW프로그래밍 역량인증시험 or AI SW 역량인증시험 중 택1)</div>
-    </div>
-  </article>
-
   <div class="sec-eyebrow">&#x2756; 시험 개요</div>
   <article class="intro-card">
     <h2>📘 시험 개요</h2>
     <table class="overview-table"><tbody>
       <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, AICT)</td></tr>
       <tr><th>시험 대상</th><td>SW개발직무 또는 희망하는 모든 인원</td></tr>
-      <tr><th>시험 시간</th><td>2시간</td></tr>
+      <tr><th>시험 시간</th><td>1시간~2시간 (추후 확정 공지 예정)</td></tr>
       <tr><th>문항 수</th><td>2문항</td></tr>
       <tr><th>시험 형태</th><td>실기 Only</td></tr>
       <tr><th>응시 방식</th><td>온라인 원격 응시</td></tr>
       <tr><th>AI 도구</th><td>제공된 AI 도구 활용</td></tr>
     </tbody></table>
-
-    <div class="summary-box">
-      <p><strong>&lt;시험 목적&gt;</strong></p>
-      <p>무엇을 검증하나요? 본 시험은 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.</p>
-      <div class="mini-list">
-        <div class="mini-item"><strong>1. 문제 해결</strong>복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력</div>
-        <div class="mini-item"><strong>2. SW 테스트·검증</strong>코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력</div>
-        <div class="mini-item"><strong>3. AI 도구 활용 개발 수행</strong>사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력</div>
-      </div>
-    </div>
-
-    <div class="summary-box">
-      <p><strong>&lt;문제 유형 예시&gt;</strong></p>
-      <p>※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.</p>
-      <p>- 문항1. 코드 분석 + 검증: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가</p>
-      <p>- 문항2. 문제해결 + AI 도구 활용: 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가</p>
-      <p>※ 문제는 회차마다 C, C++ 등 다양한 언어로 출제되며, 해당 언어에 익숙하지 않아도 AI 도구를 활용해 풀이할 수 있도록 설계되었습니다.</p>
-    </div>
-
-    <div class="note-box">
-      <strong>&lt;응시 안내&gt;</strong><br>
-      - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
-      - 크레딧 소진 방지를 위해 필요한 질문을 효율적으로 구성해 주세요.
-    </div>
   </article>
 </section>
 
@@ -269,9 +216,11 @@
     <span>LG Electronics &middot; SW역량강화팀</span>
     <div class="footer-menu">
       <a href="./exam_intro.html">시험소개</a>
-      <a href="./exam_guide.html">응시가이드</a>
-      <a href="./exam_schedule.html">시험일정</a>
-      <a href="./faq.html">FAQ</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">응시가이드</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험결과</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">FAQ</a>
     </div>
   </div>
 </footer>
