@@ -57,14 +57,18 @@
     .intro-card h4{font-size:17px;font-weight:900;margin:14px 0 8px;color:var(--red)}
     .intro-card p{font-size:14px;color:var(--sub);line-height:1.8}
     .intro-table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:10px}
-    .intro-table th{width:130px;text-align:left;padding:10px 12px;background:rgba(165,0,52,0.055);font-weight:800;border-bottom:1px solid var(--border)}
+    .intro-table th{width:130px;text-align:left;padding:10px 12px;background:rgba(165,0,52,0.14);font-weight:800;border-bottom:1px solid var(--border)}
     .intro-table td{padding:10px 12px;color:var(--sub);border-bottom:1px solid var(--border);line-height:1.65}
     .intro-table tr:last-child th,.intro-table tr:last-child td{border-bottom:none}
-    .intro-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:20px}
+    .intro-grid{display:grid;grid-template-columns:1fr;gap:30px;margin-top:28px}
     .intro-note{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(165,0,52,0.05)}
     .intro-note .note-title{display:block;font-size:17px;line-height:1.25;color:var(--text);font-weight:900;letter-spacing:-0.01em;background:rgba(165,0,52,0.055);padding:12px 14px;border-bottom:1px solid var(--border)}
     .intro-note .note-body{padding:18px 16px;font-size:15px;color:#434b69;line-height:1.9}
     .intro-note .note-body strong{color:#1f2438}
+    .problem-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(165,0,52,0.2);border-radius:10px;overflow:hidden;margin:8px 0 12px}
+    .problem-table th{width:120px;background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.2)}
+    .problem-table td{background:#fff;color:#434b69;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.75}
+    .problem-table tr:last-child th,.problem-table tr:last-child td{border-bottom:none}
 
     /* 히어로 — 세로 중앙 정렬 */
     .hero{max-width:1080px;margin:0 auto;padding:72px 32px 20px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
@@ -433,7 +437,7 @@
   <article class="intro-card">
     <h4>시험 개요</h4>
     <table class="intro-table"><tbody>
-      <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, AICT)</td></tr>
+      <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, ASCT)</td></tr>
       <tr><th>시험 대상</th><td>SW개발직무 또는 희망하는 모든 인원</td></tr>
       <tr><th>시험 시간</th><td>1시간~2시간 (추후 확정 공지 예정)</td></tr>
       <tr><th>문항 수</th><td>2문항</td></tr>
@@ -446,7 +450,6 @@
       <div class="intro-note">
         <strong class="note-title">시험 목적</strong>
         <div class="note-body">
-          - 무엇을 검증하나요? 본 시험은 <strong>AI 시대 SW개발자가 갖추어야 할 실질 역량</strong>을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현·검증·개선하는 역량을 종합적으로 평가합니다.<br><br>
           1. <strong>문제 해결</strong>: 복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력<br><br>
           2. <strong>SW 테스트·검증</strong>: 코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력<br><br>
           3. <strong>AI 도구 활용 개발 수행</strong>: 사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력
@@ -456,13 +459,21 @@
         <strong class="note-title">문제 유형 예시</strong>
         <div class="note-body">
           ※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.<br><br>
-          -<strong>문항1. 코드 분석 + 검증</strong>: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가<br><br>
-          -<strong>문항2. 문제해결 + AI 도구 활용</strong> : 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가<br><br>
+          <table class="problem-table"><tbody>
+            <tr>
+              <th>문항1</th>
+              <td><strong>코드 분석 + 검증</strong>: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가</td>
+            </tr>
+            <tr>
+              <th>문항2</th>
+              <td><strong>문제해결 + AI 도구 활용</strong>: 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가</td>
+            </tr>
+          </tbody></table>
           ※ 문제는 회차마다 C, C++ 등 다양한 언어로 출제되며, 해당 언어에 익숙하지 않아도 AI 도구를 활용해 풀이할 수 있도록 설계되었습니다.
         </div>
       </div>
       <div class="intro-note">
-        <strong class="note-title">응시 안내</strong>
+        <strong class="note-title">AI 크레딧(토근)</strong>
         <div class="note-body">
           - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
           - <strong>크레딧 소진 방지</strong>를 위해 필요한 질문을 효율적으로 구성해 주세요.
