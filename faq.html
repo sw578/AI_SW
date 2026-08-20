@@ -42,10 +42,14 @@
     .faq-panel.active{display:block}
     .panel-title{font-size:20px;font-weight:900;color:var(--text);margin-bottom:6px}
     .panel-sub{font-size:13px;color:var(--sub);margin-bottom:14px}
-    .qa-item{border-top:1px dashed rgba(165,0,52,0.2);padding:14px 0}
+    .qa-item{border-top:1px dashed rgba(165,0,52,0.2);padding:10px 0}
     .qa-item:first-of-type{border-top:none;padding-top:4px}
-    .qa-q{font-size:15px;font-weight:900;color:var(--text);margin-bottom:8px}
-    .qa-a{color:var(--sub);font-size:14px;line-height:1.85}
+    .qa-item summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .qa-item summary::-webkit-details-marker{display:none}
+    .qa-q{font-size:15px;font-weight:900;color:var(--text);margin-bottom:0;line-height:1.5}
+    .qa-item summary::after{content:'+';color:var(--red);font-size:18px;font-weight:900;line-height:1}
+    .qa-item[open] summary::after{content:'-'}
+    .qa-a{color:var(--sub);font-size:14px;line-height:1.85;padding-top:8px}
     .qa-a ul{padding-left:18px}
     .qa-a li+li{margin-top:5px}
     .ref-box{margin-top:12px;border:1px solid rgba(165,0,52,0.15);border-radius:12px;background:rgba(165,0,52,0.04);padding:10px 12px;color:var(--sub);font-size:13px;line-height:1.7}
@@ -78,6 +82,7 @@
     </a>
     <div class="gnb-menu">
       <a href="./exam_intro.html">시험소개</a>
+      <a href="./recommend_learning.html">추천학습</a>
       <a href="./exam_guide.html">응시가이드</a>
       <a href="./exam_schedule.html">시험일정</a>
       <a href="./exam_apply_cancel.html">시험신청/취소</a>
@@ -103,42 +108,42 @@
   <section class="faq-panel active" id="panel-ops" role="region" aria-label="시험 운영">
     <h2 class="panel-title">시험 운영</h2>
     <p class="panel-sub">Confluence FAQ 원문 반영</p>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 일정은 언제 확인할 수 있나요?</h3>
+    <details class="qa-item" open>
+      <summary><h3 class="qa-q">Q. 시험 일정은 언제 확인할 수 있나요?</h3></summary>
       <div class="qa-a"><ul><li>매년 초 전사 홍보를 통해 년간 시험 일정을 공개합니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 응시료는 개인이 지불하나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 시험 응시료는 개인이 지불하나요?</h3></summary>
       <div class="qa-a"><ul><li>회사에서 2회까지 지원하며, 3회부터 응시자 개인부담(개인급여공제)입니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 응시료는 얼마인가요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 시험 응시료는 얼마인가요?</h3></summary>
       <div class="qa-a"><ul><li>130,000원입니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 지각자도 시험에 응시 가능한가요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 지각자도 시험에 응시 가능한가요?</h3></summary>
       <div class="qa-a"><ul><li>불가능 합니다. 시험시작 시간에 입실한 사람만 응시 가능합니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 결시자 패널티가 있나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 결시자 패널티가 있나요?</h3></summary>
       <div class="qa-a"><ul><li>시험 취소 없이 시험 당일 결시자는 <span class="emph-red">회사지원 시험 응시 횟수가 차감('26년 ASCT 1차 시험부터 적용)</span>됩니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 합격에 대한 유효기간이 있나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 시험 합격에 대한 유효기간이 있나요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>없습니다.</li>
           <li>별도 안내가 있지 않다면, 유효기간없이 영구 합격이 유지됩니다.</li>
         </ul>
       </div>
-    </article>
+    </details>
   </section>
 
   <section class="faq-panel" id="panel-prep" role="region" aria-label="시험 준비">
     <h2 class="panel-title">시험 준비</h2>
     <p class="panel-sub">Confluence FAQ 원문 반영</p>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 사전 점검은 꼭 해야 하나요?</h3>
+    <details class="qa-item" open>
+      <summary><h3 class="qa-q">Q. 사전 점검은 꼭 해야 하나요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>네.</li>
@@ -146,9 +151,9 @@
           <li>웹캠/모니터 공유/휴대폰 중 하나라도 연결되지 않았다면, 시험이 중단될 수 있습니다.</li>
         </ul>
       </div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 환경을 미리 체험할 수 있나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 시험 환경을 미리 체험할 수 있나요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>네, 가능합니다.</li>
@@ -156,13 +161,13 @@
           <li>시험 응시 확정자를 대상으로 실제 응시 환경을 확인하는 '사전 점검(실제 응시 환경 확인)' 일정이 별도로 제공됩니다.</li>
         </ul>
       </div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 크레딧(토튼) 사용량도 시험 점수에 포함되나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 크레딧(토튼) 사용량도 시험 점수에 포함되나요?</h3></summary>
       <div class="qa-a"><ul><li>포함되지 않습니다. 단, 응시자의 AI 활용 지표 참고자료로 활용할 수 있습니다.</li></ul></div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험은 어떻게 준비하면 좋을까요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. 시험은 어떻게 준비하면 좋을까요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>추천학습에서 샘플문제와 자료를 확인할 수 있습니다.</li>
@@ -170,28 +175,28 @@
           <li>샘플문항의 목적은 문제 유형 파악이며, 실제 시험 문제와 동일하지 않습니다.</li>
         </ul>
       </div>
-    </article>
+    </details>
   </section>
 
   <section class="faq-panel" id="panel-result" role="region" aria-label="시험 결과">
     <h2 class="panel-title">시험 결과</h2>
     <p class="panel-sub">Confluence FAQ 원문 반영</p>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 시험 결과는 언제 확인할 수 있나요?</h3>
+    <details class="qa-item" open>
+      <summary><h3 class="qa-q">Q. 시험 결과는 언제 확인할 수 있나요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>일반적으로 시험 종료 후 일주일 이내 확인할 수 있습니다.</li>
           <li>시험결과 &gt; .......</li>
         </ul>
       </div>
-    </article>
+    </details>
   </section>
 
   <section class="faq-panel" id="panel-promotion" role="region" aria-label="진급최소자격요건">
     <h2 class="panel-title">진급최소자격요건</h2>
     <p class="panel-sub">Confluence FAQ 원문 반영</p>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. 기존 SW프로그래밍 역량인증시험도 진급 조건으로 유효한가요?</h3>
+    <details class="qa-item" open>
+      <summary><h3 class="qa-q">Q. 기존 SW프로그래밍 역량인증시험도 진급 조건으로 유효한가요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>네. 유효합니다.</li>
@@ -200,9 +205,9 @@
           <li>책임 진급 : Lv.4(70점) 이상</li>
         </ul>
       </div>
-    </article>
-    <article class="qa-item">
-      <h3 class="qa-q">Q. AI SW 역량인증(ASCT)도 진급최소자격요건에 포함되나요?</h3>
+    </details>
+    <details class="qa-item">
+      <summary><h3 class="qa-q">Q. AI SW 역량인증(ASCT)도 진급최소자격요건에 포함되나요?</h3></summary>
       <div class="qa-a">
         <ul>
           <li>네, 포함됩니다.</li>
@@ -211,7 +216,7 @@
           <li>진급관련하여 더 궁금한 사항은 각 조직 인사기획팀에 문의하세요.</li>
         </ul>
       </div>
-    </article>
+    </details>
     <div class="ref-box">
       (참고)
       <img src="http://collab.lge.com/main/download/attachments/3789734647/image-2026-8-20_10-30-28.png?version=1&amp;modificationDate=1787189428000&amp;api=v2" alt="FAQ 참고 이미지" />
@@ -224,6 +229,7 @@
     <span>LG Electronics · SW역량강화팀</span>
     <div class="footer-menu">
       <a href="./exam_intro.html">시험소개</a>
+      <a href="./recommend_learning.html">추천학습</a>
       <a href="./exam_guide.html">응시가이드</a>
       <a href="./exam_schedule.html">시험일정</a>
       <a href="./exam_apply_cancel.html">시험신청/취소</a>
