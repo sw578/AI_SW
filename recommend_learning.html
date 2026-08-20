@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>추천학습 | AI SW 역량인증시험 | LG전자</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    :root {
+      --red:#A50034; --dark-red:#7a0026; --pink:#ff2d6b;
+      --bg:#f9f5f6; --surface:#ffffff; --text:#1a1a2e; --sub:#5a5a7a;
+      --border:rgba(165,0,52,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .bg-layer .grid{width:100%;height:100%;background-image:linear-gradient(rgba(165,0,52,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(165,0,52,0.045) 1px,transparent 1px);background-size:52px 52px;animation:gridMove 28s linear infinite}
+    @keyframes gridMove{to{background-position:52px 52px}}
+    .bg-layer .glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 10% 8%,rgba(165,0,52,0.07) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 88% 90%,rgba(255,45,107,0.05) 0%,transparent 65%)}
+
+    .gnb{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .gnb-inner{max-width:1180px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .gnb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+    .gnb-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--red),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900}
+    .gnb-name{font-size:15px;font-weight:800}
+    .gnb-name span{color:var(--red)}
+    .gnb-menu{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+    .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px}
+    .gnb-menu a.active,.gnb-menu a:hover{background:rgba(165,0,52,0.08);color:var(--red)}
+
+    .hero{max-width:1180px;margin:0 auto;padding:58px 32px 18px;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:14px}
+    .hero h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;line-height:1.15;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+    .hero p{color:var(--sub);line-height:1.8;max-width:920px;font-size:15px}
+
+    .page{max-width:1180px;margin:0 auto;padding:14px 32px 90px;position:relative;z-index:1}
+    .notice{background:rgba(165,0,52,0.05);border:1px solid rgba(165,0,52,0.14);border-left:4px solid var(--red);border-radius:12px;padding:14px 16px;color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:16px}
+    .table-wrap{background:#fff;border:1.5px solid var(--border);border-radius:16px;box-shadow:0 6px 22px rgba(165,0,52,0.06);overflow:auto}
+    .learn-table{width:100%;min-width:980px;border-collapse:collapse}
+    .learn-table th,.learn-table td{border-bottom:1px solid rgba(165,0,52,0.14);padding:12px 10px;font-size:13px;vertical-align:middle}
+    .learn-table th{background:rgba(165,0,52,0.08);text-align:left;color:var(--dark-red);font-weight:800}
+    .learn-table tr:last-child td{border-bottom:none}
+    .category{font-weight:800;color:var(--text)}
+    .status{font-weight:800}
+    .status.always{color:#16764d}
+    .status.open{color:#0d5ea9}
+    .status.closed{color:#a32121}
+    .action-links a{color:var(--red);font-weight:800;text-decoration:none}
+    .action-links a:hover{text-decoration:underline}
+
+    .footer{border-top:1px solid var(--border);position:relative;z-index:1;margin-top:26px}
+    .footer-inner{max-width:1180px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
+    .footer-menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .footer-menu a{text-decoration:none;color:var(--sub)}
+    .footer-menu a:hover{color:var(--red)}
+
+    @media(max-width:760px){
+      .gnb-inner{padding:0 16px}
+      .hero,.page{padding-left:16px;padding-right:16px}
+      .footer-inner{padding-left:16px;padding-right:16px;flex-direction:column;align-items:flex-start}
+      .gnb-menu a{padding:8px 10px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+
+<nav class="gnb">
+  <div class="gnb-inner">
+    <a class="gnb-brand" href="./cert_portal.html">
+      <div class="gnb-logo">AI</div>
+      <span class="gnb-name">AI SW <span>역량인증시험</span></span>
+    </a>
+    <div class="gnb-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a class="active" href="./recommend_learning.html">추천학습</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">📚 추천 학습</div>
+  <h1>추천학습</h1>
+  <p>Confluence 추천 학습_ 페이지를 기준으로 과정을 반영했습니다. 과정 상태와 신청 링크를 확인해 필요한 학습을 바로 수강하세요.</p>
+</section>
+
+<main class="page">
+  <div class="notice">상태 기준: 🟢 상시 / 🔵 신청가능 / 🔴 종료. 상세 내용은 각 과정의 "보기" 링크에서 확인할 수 있습니다.</div>
+  <div class="table-wrap">
+    <table class="learn-table" aria-label="추천학습 목록">
+      <thead>
+        <tr>
+          <th>카테고리</th>
+          <th>과정명</th>
+          <th>학습 형태</th>
+          <th>상태</th>
+          <th>과정개요서</th>
+          <th>신청</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="category">문제해결</td>
+          <td>AI에게 좋은 답을 얻으려면, AI처럼 생각하라! 컴퓨팅 사고력</td>
+          <td>온라인(자유학습)</td>
+          <td class="status always">🟢 상시</td>
+          <td>-</td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3Dubob_62801%26componentTypeID%3DOnline%26revisionDate%3D1770082570000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강하기</a></td>
+        </tr>
+        <tr>
+          <td class="category">문제해결</td>
+          <td>문제를 해결하는 질문의 기술</td>
+          <td>온라인(자유학습)</td>
+          <td class="status always">🟢 상시</td>
+          <td>-</td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3Dubob_59979%26componentTypeID%3DOnline%26revisionDate%3D1758529271000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강하기</a></td>
+        </tr>
+        <tr>
+          <td class="category">문제해결</td>
+          <td>[문제해결능력] 문제해결을 위한 사고방법</td>
+          <td>온라인(자유학습)</td>
+          <td class="status always">🟢 상시</td>
+          <td>-</td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3Dubob_59999%26componentTypeID%3DOnline%26revisionDate%3D1758529276000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강하기</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>AI Fluency: Framework & Foundations</td>
+          <td>YouTube</td>
+          <td class="status always">🟢 상시</td>
+          <td>-</td>
+          <td class="action-links"><a href="https://youtube.com/playlist?list=PLf2m23nhTg1NjL3-jL3s0qZCYzO07ZQPv&si=jDguYS8sMROLB4Yx" target="_blank" rel="noopener noreferrer">바로보기</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>업무 효율을 확! 끌어올리는 생성형AI Agent 마스터 코스</td>
+          <td>온라인(쏘칼패스)</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3216721524/Online+%EC%8F%98%EC%B9%BC%ED%8C%A8%EC%8A%A4+%EC%97%85%EB%AC%B4+%ED%9A%A8%EC%9C%A8%EC%9D%84+%ED%99%95+%EB%81%8C%EC%96%B4%EC%98%AC%EB%A6%AC%EB%8A%94+%EC%83%9D%EC%84%B1%ED%98%95AI+Agent+%EB%A7%88%EC%8A%A4%ED%84%B0+%EC%BD%94%EC%8A%A4" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D25946%26componentTypeID%3DOnline%26revisionDate%3D1753176660000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>(2026 신규) AI 코딩 툴: GitHub Copilot 실전 활용</td>
+          <td>온라인(쏘칼패스)</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3751723226/2026+%EC%8B%A0%EA%B7%9C+Online+%EC%8F%98%EC%B9%BC%ED%8C%A8%EC%8A%A4+AI+%EC%BD%94%EB%94%A9+%ED%88%B4+GitHub+Copilot+%EC%8B%A4%EC%A0%84+%ED%99%9C%EC%9A%A9" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D44679%26componentTypeID%3DOnline%26revisionDate%3D1787134680000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>(2026 신규) AI 코딩 툴 맛보기 (Claude Code, Codex)</td>
+          <td>온라인(쏘칼패스)</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3751723474/2026+%EC%8B%A0%EA%B7%9C+Online+Light+%EC%8F%98%EC%B9%BC%ED%8C%A8%EC%8A%A4+AI+%EC%BD%94%EB%94%A9+%ED%88%B4+%EB%A7%9B%EB%B3%B4%EA%B8%B0+Claude+Code+Codex" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D44681%26componentTypeID%3DOnline%26revisionDate%3D1787135640000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>(2026 신규) 개발자를 위한 Agentic 워크플로우 with Claude Code</td>
+          <td>오프라인</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3542797797/2026+%EC%8B%A0%EA%B7%9C+Offline+%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC+%EC%9C%84%ED%95%9C+Agentic+%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0+with+Claude+Code" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D33949%26componentTypeID%3DOffline%26revisionDate%3D1770603240000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">AI 활용</td>
+          <td>(2026 신규) LGE SW Agent Workflow - 업무자동화 Agent</td>
+          <td>Webex+오프라인</td>
+          <td class="status closed">🔴 종료</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3712162032/2026+%EC%8B%A0%EA%B7%9C+Webex+Offline+LGE+SW+Agent+Workflow+-+%EC%97%85%EB%AC%B4%EC%9E%90%EB%8F%99%ED%99%94+Agent" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td class="category">SW Test</td>
+          <td>손에 잡히는 테스트 이론 및 Unit Test : Google Test & Google mock</td>
+          <td>온라인(쏘칼패스)</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/2853736415/Online+%EC%8F%98%EC%B9%BC%ED%8C%A8%EC%8A%A4+%EC%86%90%EC%97%90+%EC%9E%A1%ED%9E%88%EB%8A%94+%ED%85%8C%EC%8A%A4%ED%8A%B8+%EC%9D%B4%EB%A1%A0+%EB%B0%8F+Unit+Test+Google+Test+Google+mock" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D16532%26componentTypeID%3DOnline%26revisionDate%3D1736925300000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">SW Test</td>
+          <td>[Offline] TDD C</td>
+          <td>오프라인</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/2858873473/Offline+TDD+C" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D16404%26componentTypeID%3DOffline%26revisionDate%3D1736907480000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">SW Test</td>
+          <td>[Offline] TDD C++</td>
+          <td>오프라인</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/2858873581/Offline+TDD+C" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D16411%26componentTypeID%3DOffline%26revisionDate%3D1736909220000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+        <tr>
+          <td class="category">SW Test</td>
+          <td>[Offline] SW테스트를 위한 모듈 설계 및 구현</td>
+          <td>오프라인</td>
+          <td class="status closed">🔴 종료 (26년 교육없음)</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/2858872338/Offline+SW%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC+%EC%9C%84%ED%95%9C+%EB%AA%A8%EB%93%88+%EC%84%A4%EA%B3%84+%EB%B0%8F+%EA%B5%AC%ED%98%84" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td class="category">SW Test</td>
+          <td>(2026 신규) [Offline] Embedded C 유닛 테스트</td>
+          <td>오프라인</td>
+          <td class="status closed">🔴 종료 (26년 교육없음)</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3452346533/2026+%EC%8B%A0%EA%B7%9C+Offline+Embedded+C+%EC%9C%A0%EB%8B%9B+%ED%85%8C%EC%8A%A4%ED%8A%B8" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td class="category">기타</td>
+          <td>형상관리 전환 대상을 위한 Git & GitLab 입문</td>
+          <td>온라인</td>
+          <td class="status open">🔵 신청가능</td>
+          <td class="action-links"><a href="http://collab.lge.com/main/spaces/SWC/pages/3745534231/SW+College+Online+%ED%98%95%EC%83%81%EA%B4%80%EB%A6%AC+%EC%A0%84%ED%99%98+%EB%8C%80%EC%83%81%EC%9D%84+%EC%9C%84%ED%95%9C+Git+GitLab+%EC%9E%85%EB%AC%B8" target="_blank" rel="noopener noreferrer">보기</a></td>
+          <td class="action-links"><a href="https://hcm50.sapsf.com/sf/learning?destUrl=https%3A%2F%2Flg.lms.sapsf.com%2Flearning%2Fuser%2Fdeeplink_redirect.jsp%3FlinkId%3DITEM_DETAILS%26componentID%3D42554%26componentTypeID%3DOnline%26revisionDate%3D1783989720000%26targetStudentSysGUID%3D%26actingAs%3D%26fromSF%3DY&company=LG" target="_blank" rel="noopener noreferrer">수강신청</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>LG Electronics · SW역량강화팀</span>
+    <div class="footer-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./recommend_learning.html">추천학습</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
