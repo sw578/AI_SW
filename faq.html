@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | AI SW 역량인증시험 | LG전자</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    :root {
+      --red:#A50034; --dark-red:#7a0026; --pink:#ff2d6b;
+      --bg:#f9f5f6; --surface:#ffffff; --text:#1a1a2e; --sub:#5a5a7a;
+      --border:rgba(165,0,52,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .bg-layer .grid{width:100%;height:100%;background-image:linear-gradient(rgba(165,0,52,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(165,0,52,0.045) 1px,transparent 1px);background-size:52px 52px;animation:gridMove 28s linear infinite}
+    @keyframes gridMove{to{background-position:52px 52px}}
+    .bg-layer .glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 10% 8%,rgba(165,0,52,0.07) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 88% 90%,rgba(255,45,107,0.05) 0%,transparent 65%)}
+
+    .gnb{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .gnb-inner{max-width:1080px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .gnb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+    .gnb-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--red),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900}
+    .gnb-name{font-size:15px;font-weight:800}
+    .gnb-name span{color:var(--red)}
+    .gnb-menu{display:flex;align-items:center;gap:4px}
+    .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px}
+    .gnb-menu a.active,.gnb-menu a:hover{background:rgba(165,0,52,0.08);color:var(--red)}
+
+    .hero{max-width:1080px;margin:0 auto;padding:58px 32px 18px;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:14px}
+    .hero h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;line-height:1.15;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+    .hero p{color:var(--sub);line-height:1.8;max-width:760px;font-size:15px}
+
+    .page{max-width:1080px;margin:0 auto;padding:14px 32px 90px;position:relative;z-index:1}
+    .accordion{display:grid;gap:12px}
+    .acc-item{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(165,0,52,0.06)}
+    .acc-btn{width:100%;text-align:left;border:none;background:#fff;padding:18px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;font:inherit}
+    .acc-title{font-size:17px;font-weight:800;color:var(--text)}
+    .acc-sub{margin-top:4px;font-size:13px;color:var(--sub);font-weight:500}
+    .acc-arrow{color:var(--red);font-size:19px;font-weight:900;transition:transform .18s}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .24s ease;padding:0 18px}
+    .acc-content{padding:0 0 18px;color:var(--sub);font-size:14px;line-height:1.85}
+    .acc-item.open .acc-body{max-height:1500px}
+    .acc-item.open .acc-arrow{transform:rotate(90deg)}
+    .emph{font-weight:800;color:var(--text)}
+    .emph-red{font-weight:900;color:var(--red)}
+
+    .footer{border-top:1px solid var(--border);position:relative;z-index:1}
+    .footer-inner{max-width:1080px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
+    .footer-menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .footer-menu a{text-decoration:none;color:var(--sub)}
+    .footer-menu a:hover{color:var(--red)}
+
+    @media(max-width:760px){
+      .gnb-inner{padding:0 16px}
+      .hero,.page{padding-left:16px;padding-right:16px}
+      .footer-inner{padding-left:16px;padding-right:16px;flex-direction:column;align-items:flex-start}
+      .gnb-menu a{padding:8px 10px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+
+<nav class="gnb">
+  <div class="gnb-inner">
+    <a class="gnb-brand" href="./cert_portal.html">
+      <div class="gnb-logo">AI</div>
+      <span class="gnb-name">AI SW <span>역량인증시험</span></span>
+    </a>
+    <div class="gnb-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a class="active" href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">💬 FAQ 안내</div>
+  <h1>자주 묻는 질문</h1>
+  <p>Confluence FAQ 원문을 기준으로 카테고리별 질문과 답변을 접기/펼치기 형식으로 정리했습니다.</p>
+</section>
+
+<main class="page">
+  <section class="accordion" id="faqAccordion">
+    <article class="acc-item open">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🧭 시험 운영</div><div class="acc-sub">일정, 응시료, 지각/결시, 합격 유효기간</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <p><span class="emph">Q. 시험 일정은 언제 확인할 수 있나요?</span><br>A. 매년 초 전사 홍보를 통해 연간 시험 일정을 공개합니다.</p>
+        <p><span class="emph">Q. 시험 응시료는 개인이 지불하나요?</span><br>A. 회사에서 2회까지 지원하며, 3회부터 개인 부담(급여공제)입니다.</p>
+        <p><span class="emph">Q. 시험 응시료는 얼마인가요?</span><br>A. 100,000원입니다.</p>
+        <p><span class="emph">Q. 지각자도 응시 가능한가요?</span><br>A. 불가능합니다. 시험 시작 시각 입실자만 응시할 수 있습니다.</p>
+        <p><span class="emph">Q. 결시자 패널티가 있나요?</span><br>A. 시험 취소 없이 당일 결시 시 <span class="emph-red">회사지원 응시 횟수가 차감</span>됩니다.('26년 ASCT 1차부터)</p>
+        <p><span class="emph">Q. 시험 합격 유효기간이 있나요?</span><br>A. 별도 안내가 없다면 유효기간 없이 합격이 유지됩니다.</p>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🧪 시험 준비</div><div class="acc-sub">사전점검, 체험환경, 크레딧, 학습 방법</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <p><span class="emph">Q. 사전 점검은 꼭 해야 하나요?</span><br>A. 네, 필수입니다.</p>
+        <p><span class="emph">Q. 시험 환경을 미리 체험할 수 있나요?</span><br>A. 가능합니다. 응시가이드의 체험 환경을 통해 실제와 유사한 구성을 미리 확인할 수 있습니다.</p>
+        <p><span class="emph">Q. 크레딧(토큰) 사용량도 시험 점수에 포함되나요?</span><br>A. 점수에는 포함되지 않으며, AI 활용 지표 참고자료로 활용될 수 있습니다.</p>
+        <p><span class="emph">Q. 시험은 어떻게 준비하면 좋을까요?</span><br>A. 추천학습의 샘플문항과 자료를 참고해 유형을 파악하세요. 샘플과 실제 시험 난이도는 다를 수 있습니다.</p>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">📊 시험 결과</div><div class="acc-sub">결과 확인 시점</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <p><span class="emph">Q. 시험 결과는 언제 확인할 수 있나요?</span><br>A. 일반적으로 시험 종료 후 1주일 이내 확인할 수 있습니다.</p>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🏅 진급최소자격요건</div><div class="acc-sub">SW/AI SW 역량인증 인정 기준</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <p><span class="emph">Q. 기존 SW프로그래밍 역량인증시험도 진급 조건으로 유효한가요?</span><br>A. 유효합니다. 선임 진급은 Lv.3(50점) 이상, 책임 진급은 Lv.4(70점) 이상 기준입니다.</p>
+        <p><span class="emph">Q. AI SW 역량인증(ASCT)도 진급최소자격요건에 포함되나요?</span><br>A. 포함됩니다. '26년 4Q~'27년은 병행(선택 가능), '28년부터 AI SW 역량인증 단일화 계획입니다.</p>
+      </div></div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>LG Electronics · SW역량강화팀</span>
+    <div class="footer-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items = document.querySelectorAll('#faqAccordion .acc-item');
+  items.forEach(item=>{
+    item.querySelector('.acc-btn').addEventListener('click',()=>{
+      const willOpen = !item.classList.contains('open');
+      items.forEach(el=>el.classList.remove('open'));
+      if(willOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>

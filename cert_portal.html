@@ -34,17 +34,6 @@
     .gnb-menu{display:flex;align-items:center;gap:4px}
     .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px;transition:background .18s,color .18s;position:relative}
     .gnb-menu a:hover{background:rgba(165,0,52,0.07);color:var(--red)}
-    .cs-tag{position:absolute;top:-6px;right:-2px;background:linear-gradient(135deg,#ff6b35,var(--pink));color:#fff;font-size:8px;font-weight:900;padding:2px 5px;border-radius:999px;letter-spacing:.5px;pointer-events:none}
-    /* Coming soon 모달 */
-    .cs-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(26,26,46,0.46);backdrop-filter:blur(4px);align-items:center;justify-content:center}
-    .cs-overlay.open{display:flex}
-    .cs-box{background:#fff;border-radius:24px;padding:44px 40px 36px;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 64px rgba(165,0,52,0.18);position:relative;animation:csIn .25s cubic-bezier(.34,1.56,.64,1)}
-    @keyframes csIn{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}
-    .cs-box .cs-icon{font-size:44px;margin-bottom:14px}
-    .cs-box h3{font-size:20px;font-weight:900;margin-bottom:8px;color:var(--text)}
-    .cs-box p{font-size:14px;color:var(--sub);line-height:1.75;margin-bottom:24px}
-    .cs-close{background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;border:none;border-radius:10px;padding:11px 28px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:filter .18s}
-    .cs-close:hover{filter:brightness(1.1)}
     .home-view{display:block}
     .intro-view{display:none;max-width:1080px;margin:0 auto;padding:42px 32px 90px;position:relative;z-index:1}
     body.show-intro .home-view{display:none}
@@ -121,9 +110,7 @@
     .menu-card h3{font-size:18px;font-weight:800}
     .menu-card p{font-size:14px;color:var(--sub);line-height:1.75;flex:1}
     .menu-card .card-more{display:inline-flex;align-items:center;gap:4px;color:var(--red);font-size:13px;font-weight:800;margin-top:8px}
-    /* coming soon 카드 리본 */
-    .menu-card.soon{cursor:pointer}
-    .menu-card.soon .soon-ribbon{position:absolute;top:14px;right:14px;background:linear-gradient(135deg,#ff6b35,var(--pink));color:#fff;font-size:9px;font-weight:900;letter-spacing:.8px;padding:3px 9px;border-radius:999px;text-transform:uppercase}
+
 
     /* 푸터 */
     .footer{border-top:1px solid var(--border);position:relative;z-index:1}
@@ -158,16 +145,6 @@
 </div>
 <div id="bubbles" aria-hidden="true"></div>
 
-<!-- Coming Soon 모달 -->
-<div class="cs-overlay" id="csOverlay" role="dialog" aria-modal="true">
-  <div class="cs-box">
-    <div class="cs-icon">🚧</div>
-    <h3>추후 공개 예정</h3>
-    <p>해당 페이지는 현재 준비 중입니다.<br>조금만 기다려 주세요! 곧 오픈될 예정입니다. 😊</p>
-    <button class="cs-close" onclick="document.getElementById('csOverlay').classList.remove('open')">확인</button>
-  </div>
-</div>
-
 <nav class="gnb">
   <div class="gnb-inner">
     <a class="gnb-brand" href="/AI_SW/cert_portal.html" onclick="if(document.body.classList.contains('show-intro')){event.preventDefault();closeIntroPage();}">
@@ -176,12 +153,10 @@
     </a>
     <div class="gnb-menu">
       <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">추천학습<span class="cs-tag">SOON</span></a>
       <a href="./exam_guide.html">응시가이드</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정<span class="cs-tag">SOON</span></a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소<span class="cs-tag">SOON</span></a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험결과<span class="cs-tag">SOON</span></a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">FAQ<span class="cs-tag">SOON</span></a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
     </div>
   </div>
 </nav>
@@ -367,7 +342,7 @@
       <h2 class="about-main-title"><strong>About ASCT</strong></h2>
     </div>
     <p class="what-body what-body-emphasis">
-      <strong>ASCT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 구현/검증/개선하는 역량을 종합적으로 평가합니다.</strong><br><br>
+      <strong>ASCT는 AI 시대 SW개발자가 갖추어야 할 실질 역량을 검증하는 것을 목표로 합니다. 사람이 문제 해결 방향을 주도하고, AI를 도구로 활용해 설계/구현/검증/개선하는 역량을 종합적으로 평가합니다.</strong><br><br>
       <strong class="asct-note">* ASCT : AI Software Competency Test</strong>
     </p>
   </div>
@@ -382,47 +357,30 @@
       <p>About ASCT와 시험개요를 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
     </a>
-    <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
-      <span class="soon-ribbon">Coming Soon</span>
-      <span class="card-icon">&#x1F4D6;</span>
-      <h3>추천학습</h3>
-      <p>추천학습은 추후 공개 예정입니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </div>
     <a class="menu-card" href="./exam_guide.html">
       <span class="card-icon">&#x1F4DA;</span>
       <h3>응시가이드</h3>
       <p>응시 전 필수 준비사항과 환경점검, 유의사항을 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
     </a>
-    <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
-      <span class="soon-ribbon">Coming Soon</span>
+    <a class="menu-card" href="./exam_schedule.html">
       <span class="card-icon">&#x1F4C5;</span>
       <h3>시험일정</h3>
-      <p>시험일정은 추후 공개 예정입니다.</p>
+      <p>회차별 신청 기간, 시험 시간, 결과 발표일을 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
-    </div>
-    <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
-      <span class="soon-ribbon">Coming Soon</span>
+    </a>
+    <a class="menu-card" href="./exam_apply_cancel.html">
       <span class="card-icon">&#x1F4DD;</span>
       <h3>시험신청/취소</h3>
-      <p>시험신청/취소 기능은 추후 공개 예정입니다.</p>
+      <p>신청 가능 기간과 절차, 취소 기준 및 유의사항을 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
-    </div>
-    <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
-      <span class="soon-ribbon">Coming Soon</span>
-      <span class="card-icon">&#x1F4CA;</span>
-      <h3>시험결과</h3>
-      <p>시험결과 확인 기능은 추후 공개 예정입니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </div>
-    <div class="menu-card soon" onclick="document.getElementById('csOverlay').classList.add('open')" role="button" tabindex="0">
-      <span class="soon-ribbon">Coming Soon</span>
+    </a>
+    <a class="menu-card" href="./faq.html">
       <span class="card-icon">&#x1F4AC;</span>
       <h3>FAQ</h3>
-      <p>FAQ는 추후 공개 예정입니다.</p>
+      <p>자주 묻는 질문을 접기/펼치기 형식으로 빠르게 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
-    </div>
+    </a>
   </div>
 </section>
 </div>
@@ -484,10 +442,9 @@
     <div class="footer-menu">
       <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
       <a href="./exam_guide.html">응시가이드</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험일정</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험신청/취소</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">시험결과</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('csOverlay').classList.add('open')">FAQ</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
     </div>
   </div>
 </footer>
@@ -539,21 +496,11 @@ window.addEventListener('popstate',()=>{
     ].join(';');
     wrap.appendChild(b);
   }
-  // soon 카드 키보드 접근성
-  document.querySelectorAll('.menu-card.soon').forEach(el=>{
-    el.addEventListener('keydown',e=>{
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();document.getElementById('csOverlay').classList.add('open');}
-    });
-  });
-  // ESC 닫기
+  // ESC로 소개 페이지 닫기
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){
-      document.getElementById('csOverlay').classList.remove('open');
       document.body.classList.remove('show-intro');
     }
-  });
-  document.getElementById('csOverlay').addEventListener('click',function(e){
-    if(e.target===this) this.classList.remove('open');
   });
 })();
 </script>
