@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시험일정 | AI SW 역량인증시험 | LG전자</title>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    :root {
+      --red:#A50034; --dark-red:#7a0026; --pink:#ff2d6b;
+      --bg:#f9f5f6; --surface:#ffffff; --text:#1a1a2e; --sub:#5a5a7a;
+      --border:rgba(165,0,52,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .bg-layer .grid{width:100%;height:100%;background-image:linear-gradient(rgba(165,0,52,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(165,0,52,0.045) 1px,transparent 1px);background-size:52px 52px;animation:gridMove 28s linear infinite}
+    @keyframes gridMove{to{background-position:52px 52px}}
+    .bg-layer .glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 40% at 10% 8%,rgba(165,0,52,0.07) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 88% 90%,rgba(255,45,107,0.05) 0%,transparent 65%)}
+
+    .gnb{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .gnb-inner{max-width:1080px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .gnb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+    .gnb-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--red),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900}
+    .gnb-name{font-size:15px;font-weight:800}
+    .gnb-name span{color:var(--red)}
+    .gnb-menu{display:flex;align-items:center;gap:4px}
+    .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px}
+    .gnb-menu a.active,.gnb-menu a:hover{background:rgba(165,0,52,0.08);color:var(--red)}
+
+    .hero{max-width:1080px;margin:0 auto;padding:58px 32px 18px;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:14px}
+    .hero h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;line-height:1.15;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+    .hero p{color:var(--sub);line-height:1.8;max-width:760px;font-size:15px}
+
+    .page{max-width:1080px;margin:0 auto;padding:14px 32px 90px;position:relative;z-index:1}
+    .accordion{display:grid;gap:12px}
+    .acc-item{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(165,0,52,0.06)}
+    .acc-btn{width:100%;text-align:left;border:none;background:#fff;padding:18px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;font:inherit}
+    .acc-title{font-size:17px;font-weight:800;color:var(--text)}
+    .acc-sub{margin-top:4px;font-size:13px;color:var(--sub);font-weight:500}
+    .acc-arrow{color:var(--red);font-size:19px;font-weight:900;transition:transform .18s}
+    .acc-body{max-height:0;overflow:hidden;transition:max-height .24s ease;padding:0 18px}
+    .acc-content{padding:0 0 18px;color:var(--sub);font-size:14px;line-height:1.85}
+    .acc-item.open .acc-body{max-height:520px}
+    .acc-item.open .acc-arrow{transform:rotate(90deg)}
+    .emph{font-weight:800;color:var(--text)}
+    .emph-red{font-weight:900;color:var(--red)}
+
+    .schedule-table{width:100%;border-collapse:collapse;margin-top:8px}
+    .schedule-table th,.schedule-table td{border:1px solid rgba(165,0,52,0.14);padding:10px 10px;font-size:13px;vertical-align:top}
+    .schedule-table th{background:rgba(165,0,52,0.06);text-align:left;color:var(--dark-red);font-weight:800}
+
+    .footer{border-top:1px solid var(--border);position:relative;z-index:1}
+    .footer-inner{max-width:1080px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
+    .footer-menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .footer-menu a{text-decoration:none;color:var(--sub)}
+    .footer-menu a:hover{color:var(--red)}
+
+    @media(max-width:760px){
+      .gnb-inner{padding:0 16px}
+      .hero,.page{padding-left:16px;padding-right:16px}
+      .footer-inner{padding-left:16px;padding-right:16px;flex-direction:column;align-items:flex-start}
+      .gnb-menu a{padding:8px 10px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+<div class="bg-layer" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+
+<nav class="gnb">
+  <div class="gnb-inner">
+    <a class="gnb-brand" href="./cert_portal.html">
+      <div class="gnb-logo">AI</div>
+      <span class="gnb-name">AI SW <span>역량인증시험</span></span>
+    </a>
+    <div class="gnb-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a class="active" href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">📅 시험 일정 안내</div>
+  <h1>시험일정</h1>
+  <p>회차별 일정을 클릭해 상세 내용을 펼쳐 확인할 수 있습니다. 추후 차수는 확정 즉시 업데이트됩니다.</p>
+</section>
+
+<main class="page">
+  <section class="accordion" id="scheduleAccordion">
+    <article class="acc-item open">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🕒 2026년 1차수 일정</div><div class="acc-sub">시험/신청/발표 일정을 한 번에 확인</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        <table class="schedule-table" aria-label="2026년 1차수 일정">
+          <thead>
+            <tr>
+              <th>시험 일시</th>
+              <th>신청 일정</th>
+              <th>시험 시간</th>
+              <th>결과 발표일</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026.10.02(금)</td>
+              <td>2026.09.01(화)~09.08(화)</td>
+              <td><span class="emph">입실 확인 09:00~09:30</span><br><span class="emph-red">시험 응시 09:30~11:30</span></td>
+              <td>10.13(예정)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">📌 2027년 일정</div><div class="acc-sub">차수별 일정은 확정 후 공지</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        2027년 회차별 시험 일정은 운영 계획 확정 후 순차 공개됩니다.
+      </div></div>
+    </article>
+
+    <article class="acc-item">
+      <button class="acc-btn" type="button">
+        <div><div class="acc-title">🔗 신청/취소/현황/결과 기능 안내</div><div class="acc-sub">러닝넷 연동 항목</div></div>
+        <span class="acc-arrow">›</span>
+      </button>
+      <div class="acc-body"><div class="acc-content">
+        신청된 내역 조회, 신청 취소, 신청 현황, 시험 결과 확인 기능은 <span class="emph-red">러닝넷 연동 범위 확정 후</span> 제공될 예정입니다.
+      </div></div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>LG Electronics · SW역량강화팀</span>
+    <div class="footer-menu">
+      <a href="./exam_intro.html">시험소개</a>
+      <a href="./exam_guide.html">응시가이드</a>
+      <a href="./exam_schedule.html">시험일정</a>
+      <a href="./exam_apply_cancel.html">시험신청/취소</a>
+      <a href="./faq.html">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items = document.querySelectorAll('#scheduleAccordion .acc-item');
+  items.forEach(item=>{
+    item.querySelector('.acc-btn').addEventListener('click',()=>{
+      const willOpen = !item.classList.contains('open');
+      items.forEach(el=>el.classList.remove('open'));
+      if(willOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
