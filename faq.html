@@ -6,6 +6,7 @@
   <title>FAQ | AI SW 역량인증시험 | LG전자</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+    @import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css');
     :root {
       --red:#A50034; --dark-red:#7a0026; --pink:#ff2d6b;
       --bg:#f9f5f6; --surface:#ffffff; --text:#1a1a2e; --sub:#5a5a7a;
@@ -22,30 +23,30 @@
     .gnb-inner{max-width:1080px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
     .gnb-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
     .gnb-logo{width:38px;height:38px;background:linear-gradient(135deg,var(--red),var(--pink));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:900}
-    .gnb-name{font-size:15px;font-weight:800}
+    .gnb-name{font-size:15px;font-weight:800;font-family:'SUIT Variable','Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em}
     .gnb-name span{color:var(--red)}
     .gnb-menu{display:flex;align-items:center;gap:4px}
     .gnb-menu a{text-decoration:none;color:var(--sub);font-size:14px;font-weight:700;padding:8px 14px;border-radius:8px}
     .gnb-menu a.active,.gnb-menu a:hover{background:rgba(165,0,52,0.08);color:var(--red)}
 
-    .hero{max-width:1080px;margin:0 auto;padding:58px 32px 18px;position:relative;z-index:1}
+    .hero{max-width:1080px;margin:0 auto;padding:64px 32px 22px;position:relative;z-index:1}
     .hero-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,var(--red),var(--pink));color:#fff;padding:6px 14px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1.5px;margin-bottom:14px}
-    .hero h1{font-size:clamp(34px,4.8vw,54px);font-weight:900;line-height:1.15;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+    .hero h1{font-size:clamp(36px,4.9vw,56px);font-weight:900;font-family:'SUIT Variable','Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.02em;line-height:1.12;background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
     .hero p{color:var(--sub);line-height:1.8;max-width:760px;font-size:15px}
 
-    .page{max-width:1080px;margin:0 auto;padding:14px 32px 90px;position:relative;z-index:1}
+    .page{max-width:1080px;margin:0 auto;padding:18px 32px 90px;position:relative;z-index:1}
     .faq-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
     .tab-btn{border:1.5px solid var(--border);background:#fff;color:var(--sub);border-radius:999px;padding:9px 14px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .18s}
     .tab-btn:hover{border-color:rgba(165,0,52,0.28);color:var(--red)}
     .tab-btn.active{background:linear-gradient(135deg,var(--dark-red),var(--red),var(--pink));color:#fff;border-color:transparent;box-shadow:0 8px 22px rgba(165,0,52,0.2)}
     .faq-panel{display:none}
     .faq-panel.active{display:block}
-    .panel-title{font-size:20px;font-weight:900;color:var(--text);margin-bottom:6px}
+    .panel-title{font-size:22px;font-weight:900;color:var(--text);font-family:'SUIT Variable','Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;margin-bottom:6px}
     .panel-sub{font-size:13px;color:var(--sub);margin-bottom:14px}
-    .qa-item{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;box-shadow:0 4px 16px rgba(165,0,52,0.05);margin-bottom:10px}
+    .qa-item{background:#fff;border:1px solid rgba(165,0,52,0.14);border-radius:14px;padding:14px 16px;box-shadow:0 6px 20px rgba(165,0,52,0.05);margin-bottom:10px}
     .qa-item summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
     .qa-item summary::-webkit-details-marker{display:none}
-    .qa-q{font-size:15px;font-weight:900;color:var(--text);margin-bottom:0;line-height:1.5}
+    .qa-q{font-size:16px;font-weight:900;color:var(--text);font-family:'SUIT Variable','Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;margin-bottom:0;line-height:1.5}
     .qa-item summary::after{content:'+';color:var(--red);font-size:18px;font-weight:900;line-height:1}
     .qa-item[open] summary::after{content:'-'}
     .qa-a{color:var(--sub);font-size:14px;line-height:1.85;padding-top:8px}
