@@ -55,6 +55,7 @@
     .emph{font-weight:800;color:var(--text)}
     .emph-red{font-weight:900;color:var(--red)}
     .guide-table{width:100%;border-collapse:collapse;margin:10px 0}
+    .guide-table + .guide-table{margin-top:10px}
     .guide-table th,.guide-table td{border:1px solid rgba(165,0,52,0.14);padding:10px 10px;font-size:13px;vertical-align:top}
     .guide-table th{background:rgba(165,0,52,0.06);text-align:left;color:var(--dark-red);font-weight:800}
     .credit-list{padding-left:18px}
@@ -69,6 +70,7 @@
     .work-list li+li{margin-top:8px}
     .work-figure{margin:10px 0 6px}
     .work-figure img{display:block;width:100%;max-width:920px;border:1px solid rgba(165,0,52,0.16);border-radius:12px;box-shadow:0 6px 18px rgba(165,0,52,0.08)}
+    .soon{display:inline-block;background:rgba(165,0,52,0.08);color:var(--red);font-size:12px;font-weight:900;border-radius:999px;padding:5px 10px;margin-bottom:10px}
 
     .footer{border-top:1px solid var(--border);position:relative;z-index:1}
     .footer-inner{max-width:1080px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
@@ -174,14 +176,13 @@
             <tr>
               <td>방법</td>
               <td>
-                1단계: Devth App 실행(클라우드 PC 응시 불가)<br>
-                2단계: 주관부서에서 부여한 ID/PW로 사전점검 페이지 접속(SSO/EP ID 접속 불가)<br>
-                3단계: 웹캠, 화면공유, 모바일 카메라 연결 및 신분증 등록
+                Devth App 실행 &gt; ID/PW 로그인 &gt; 응시환경설정세팅(웹캠, 화면공유, 모바일 카메라 연결 및 신분증 등록)
               </td>
             </tr>
-            <tr><td>문의</td><td>시스템 세팅 문제: 사이트 하단 1:1 문의하기 / 시험 운영 문의: lgswtest@lge.com</td></tr>
+            <tr><td>문의</td><td>- 시스템 관련 문의: 시험응시사이트 우측 하단 아이콘 클릭 후, 1:1 문의하기<br>- 시험 관련 문의: lgswtest@lge.com</td></tr>
           </tbody>
         </table>
+        <div class="guide-callout">* 사전 점검 상세 가이드는 응시확정자에게 개별 메일 안내</div>
         <div class="guide-callout"><span class="emph-red">사전점검 미완료로 인한 시험 당일 기술 이슈는 즉시 지원이 어려울 수 있습니다.</span></div>
       </div></div>
     </article>
@@ -222,15 +223,11 @@
       <div class="acc-body"><div class="acc-content">
         <p><strong>원격근무 신청 ('근태 시스템'에서 응시자가 신청)</strong></p>
         <ul class="work-list">
-          <li>사전에 조직책임자에 원격근무를 통한 시험 응시 사실 알리고, <span class="emph">[통합근태신청 &gt; 근무 &gt; 원격근무]</span> 입력 후 <span class="emph">사유</span>에 <span class="emph-red">"SW프로그래밍 역량인증시험 응시"</span> 작성</li>
+          <li>사전에 조직책임자에 원격근무를 통한 시험 응시 사실 알리고, <span class="emph">[통합근태신청 &gt; 근무 &gt; 원격근무]</span> 입력 후 <span class="emph">사유</span>에 <span class="emph-red">"AI SW 프로그래밍 역량인증시험 응시"</span> 작성</li>
         </ul>
         <figure class="work-figure">
-          <img src="./assets/image-2026-7-27_17-8-56.png" alt="원격근무 신청 근태 시스템 예시 이미지">
+          <img src="./image-2026-8-19_17-13-12.png" alt="원격근무 신청 근태 시스템 예시 이미지">
         </figure>
-        <ul class="work-list">
-          <li><strong>원격근무 품의(개인품의 X) :</strong> 사전 임원 EP 품의는 '최종확정'자 대상으로 시험 주관부서에서 일괄 진행</li>
-          <li>근태규칙 (e.g. 재택 시 임원품의)에 따라, 응시편의를 위해 주관부서(SW역량강화팀)에서 '최종확정자' 대상으로 원격근무를 위한 일괄 품의 진행</li>
-        </ul>
       </div></div>
     </article>
 
@@ -240,25 +237,7 @@
         <span class="acc-arrow">›</span>
       </button>
       <div class="acc-body"><div class="acc-content">
-        <ul class="acc-list">
-          <li>시험 응시료는 <span class="emph">2회까지 회사 지원</span>입니다.</li>
-          <li><span class="emph-red">3회부터 응시자 부담(개인급여공제)</span>이며, '26년 1차 시험부터 응시 횟수 기준이 적용됩니다.</li>
-        </ul>
-      </div></div>
-    </article>
-
-    <article class="acc-item">
-      <button class="acc-btn" type="button">
-        <div><div class="acc-title">❗ 결시자 및 취소 규정</div><div class="acc-sub">결시 패널티와 면제 절차</div></div>
-        <span class="acc-arrow">›</span>
-      </button>
-      <div class="acc-body"><div class="acc-content">
-        <ul class="acc-list">
-          <li>시험 취소 없이 당일 결시 시 <span class="emph-red">회사지원 응시 횟수 차감</span>('26년 1차부터 적용)</li>
-          <li>업무/가족 경조사 등 불가피한 사유는 조직책임자 결재를 통해 차감 면제가 가능합니다.</li>
-          <li>기한 내 취소는 신청자가 직접 처리하며, 취소 기간 이후 취소는 원칙적으로 불가합니다.</li>
-          <li>예외 사유가 있는 경우 조직책임자 결재 기반의 면제 요청 절차를 따릅니다.</li>
-        </ul>
+        <span class="soon">9월 중 안내 예정</span>
       </div></div>
     </article>
   </section>
