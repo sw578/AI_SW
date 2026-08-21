@@ -58,10 +58,16 @@
     .problem-table th{width:120px;background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.2)}
     .problem-table td{background:#fff;color:#434b69;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.75}
     .problem-table tr:last-child th,.problem-table tr:last-child td{border-bottom:none}
-    .composition-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(165,0,52,0.2);border-radius:10px;overflow:hidden;margin:8px 0 12px;font-size:13px}
-    .composition-table th{background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:10px 10px;border-bottom:1px solid rgba(165,0,52,0.2)}
-    .composition-table td{background:#fff;color:#434b69;padding:10px 10px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.7;vertical-align:top}
+    .composition-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(165,0,52,0.2);border-radius:10px;overflow:hidden;margin:8px 0 12px;font-size:13px;table-layout:fixed}
+    .composition-table th{background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:11px 10px;border-bottom:1px solid rgba(165,0,52,0.2);line-height:1.5}
+    .composition-table td{background:#fff;color:#434b69;padding:11px 10px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.75;vertical-align:top;word-break:keep-all}
     .composition-table tr:last-child th,.composition-table tr:last-child td{border-bottom:none}
+    .composition-table th:nth-child(1),.composition-table td:nth-child(1){width:10%;text-align:center}
+    .composition-table th:nth-child(2),.composition-table td:nth-child(2){width:46%}
+    .composition-table th:nth-child(3),.composition-table td:nth-child(3){width:10%;text-align:center}
+    .composition-table th:nth-child(4),.composition-table td:nth-child(4){width:10%;text-align:center}
+    .composition-table th:nth-child(5),.composition-table td:nth-child(5){width:10%;text-align:center}
+    .composition-table th:nth-child(6),.composition-table td:nth-child(6){width:14%}
     .composition-total td{font-weight:800;color:#1f2438}
 
     /* 히어로 — 세로 중앙 정렬 */
@@ -388,7 +394,7 @@
             </tr>
             <tr>
               <td>실기</td>
-              <td>코드 분석 + 검증 (주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가)</td>
+              <td><strong>코드 분석 + 검증</strong><br>주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가</td>
               <td>1</td>
               <td>2시간</td>
               <td>50점</td>
@@ -396,7 +402,7 @@
             </tr>
             <tr>
               <td>실기</td>
-              <td>문제해결 + AI 도구 활용 (문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가)</td>
+              <td><strong>문제해결 + AI 도구 활용</strong><br>문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용해 구현·검증하는 능력 평가</td>
               <td>1</td>
               <td>2시간</td>
               <td>50점</td>
@@ -421,7 +427,7 @@
         </div>
       </div>
       <div class="intro-note">
-        <strong class="note-title">AI크레딧(토큰)</strong>
+        <strong class="note-title">AI 크레딧(토큰)</strong>
         <div class="note-body">
           - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
           - <strong>크레딧 소진 방지</strong>를 위해 필요한 질문을 효율적으로 구성해 주세요.
