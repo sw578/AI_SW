@@ -58,6 +58,11 @@
     .problem-table th{width:120px;background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.2)}
     .problem-table td{background:#fff;color:#434b69;padding:10px 12px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.75}
     .problem-table tr:last-child th,.problem-table tr:last-child td{border-bottom:none}
+    .composition-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(165,0,52,0.2);border-radius:10px;overflow:hidden;margin:8px 0 12px;font-size:13px}
+    .composition-table th{background:rgba(165,0,52,0.14);color:#2b2438;text-align:left;font-weight:800;padding:10px 10px;border-bottom:1px solid rgba(165,0,52,0.2)}
+    .composition-table td{background:#fff;color:#434b69;padding:10px 10px;border-bottom:1px solid rgba(165,0,52,0.14);line-height:1.7;vertical-align:top}
+    .composition-table tr:last-child th,.composition-table tr:last-child td{border-bottom:none}
+    .composition-total td{font-weight:800;color:#1f2438}
 
     /* 히어로 — 세로 중앙 정렬 */
     .hero{max-width:1080px;margin:0 auto;padding:72px 32px 20px;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
@@ -152,7 +157,7 @@
       <span class="gnb-name">AI SW <span>역량인증시험</span></span>
     </a>
     <div class="gnb-menu">
-      <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
+      <a href="#" onclick="event.preventDefault();openIntroPage()">ASCT소개</a>
       <a href="./recommend_learning.html">추천학습</a>
       <a href="./exam_guide.html">응시가이드</a>
       <a href="./exam_schedule.html">시험일정</a>
@@ -354,7 +359,7 @@
   <div class="cards-grid">
     <a class="menu-card" href="#" onclick="event.preventDefault();openIntroPage()">
       <span class="card-icon">&#x1F4CB;</span>
-      <h3>시험소개</h3>
+      <h3>ASCT소개</h3>
       <p>About ASCT와 시험개요를 확인할 수 있습니다.</p>
       <span class="card-more">더 알아보기 &#x203A;</span>
     </a>
@@ -394,38 +399,54 @@
 
 <section class="intro-view" id="introView">
   <div class="intro-head">
-    <h2 class="intro-title">시험소개</h2>
+    <h2 class="intro-title">ASCT소개</h2>
     <button class="intro-back" onclick="closeIntroPage()">메인으로</button>
   </div>
   <article class="intro-card">
-    <h4>시험 개요</h4>
+    <h4>시험개요</h4>
     <table class="intro-table"><tbody>
       <tr><th>시험 명칭</th><td>AI SW 역량인증시험 (AI Software Competency Test, ASCT)</td></tr>
       <tr><th>시험 대상</th><td>SW개발직무 또는 희망하는 모든 인원</td></tr>
-      <tr><th>시험 시간</th><td>1시간~2시간 (추후 확정 공지 예정)</td></tr>
+      <tr><th>시험 시간</th><td>2시간</td></tr>
       <tr><th>문항 수</th><td>2문항</td></tr>
       <tr><th>시험 형태</th><td>실기 Only</td></tr>
       <tr><th>응시 방식</th><td>온라인 원격 응시</td></tr>
       <tr><th>AI 도구</th><td>제공된 AI 도구 활용</td></tr>
-      <tr><th>합격기준</th><td>70점 이상</td></tr>
+      <tr><th>합격기준</th><td>70점 이상(Level 구분 없음)</td></tr>
     </tbody></table>
     <div class="intro-grid">
       <div class="intro-note">
-        <strong class="note-title">시험 목적 및 문제 유형</strong>
+        <strong class="note-title">시험구성</strong>
         <div class="note-body">
-          <strong>시험목적</strong><br>
-          - <strong>문제해결</strong> : 복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 능력<br>
-          - <strong>SW 테스트·검증</strong>: 코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 능력<br>
-          - <strong>AI 도구 활용 개발 수행</strong>: 사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 능력<br><br>
-          <strong>문제유형</strong><br>
-          <table class="problem-table"><tbody>
+          <table class="composition-table"><tbody>
             <tr>
-              <th>문항1</th>
-              <td><strong>코드 분석 + 검증</strong>: 주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가</td>
+              <th>구성</th>
+              <th>영역</th>
+              <th>문항 수</th>
+              <th>시간</th>
+              <th>배점</th>
+              <th>합격 기준</th>
             </tr>
             <tr>
-              <th>문항2</th>
-              <td><strong>문제해결 + AI 도구 활용</strong>: 문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가</td>
+              <td>실기</td>
+              <td>코드 분석 + 검증 (주어진 코드를 분석하고, 정확성과 품질을 검증하는 능력 평가)</td>
+              <td>1</td>
+              <td>2시간</td>
+              <td>50점</td>
+              <td>70점 이상 합격 (Level 구분 없음)</td>
+            </tr>
+            <tr>
+              <td>실기</td>
+              <td>문제해결 + AI 도구 활용 (문제 상황을 분석하고 해결 방안을 도출하며, AI를 개발 도구로 활용하여 구현·검증하는 능력 평가)</td>
+              <td>1</td>
+              <td>2시간</td>
+              <td>50점</td>
+              <td>70점 이상 합격 (Level 구분 없음)</td>
+            </tr>
+            <tr class="composition-total">
+              <td colspan="4">총점</td>
+              <td>100점</td>
+              <td></td>
             </tr>
           </tbody></table>
           ※ 문제의 유형은 AI 변화에 따라 변경될 수 있습니다.<br>
@@ -433,7 +454,15 @@
         </div>
       </div>
       <div class="intro-note">
-        <strong class="note-title">AI 크레딧(토근)</strong>
+        <strong class="note-title">출제기준</strong>
+        <div class="note-body">
+          - <strong>문제해결</strong> : 복잡한 문제를 분석하고 다양한 대안을 검토해 최적의 해결책을 도출·실행하는 문제<br>
+          - <strong>SW 테스트·검증</strong>: 코드의 정상/예외 경로를 테스트로 검증하고 AI 산출물의 품질을 판단·보완하는 문제<br>
+          - <strong>AI 도구 활용 개발 수행</strong>: 사람이 방향을 설계하고 AI를 활용해 구현·검증·개선을 효과적으로 수행하는 문제
+        </div>
+      </div>
+      <div class="intro-note">
+        <strong class="note-title">AI크레딧(토큰)</strong>
         <div class="note-body">
           - <strong>AI 크레딧(토큰) 제한</strong>: 응시자별로 주어진 AI 크레딧 내에서 문제를 풀이합니다. (채점 항목 아님)<br>
           - <strong>크레딧 소진 방지</strong>를 위해 필요한 질문을 효율적으로 구성해 주세요.
@@ -447,7 +476,7 @@
   <div class="footer-inner">
     <span>LG Electronics &middot; SW역량강화팀</span>
     <div class="footer-menu">
-      <a href="#" onclick="event.preventDefault();openIntroPage()">시험소개</a>
+      <a href="#" onclick="event.preventDefault();openIntroPage()">ASCT소개</a>
       <a href="./recommend_learning.html">추천학습</a>
       <a href="./exam_guide.html">응시가이드</a>
       <a href="./exam_schedule.html">시험일정</a>
