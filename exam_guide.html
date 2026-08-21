@@ -56,6 +56,14 @@
     .guide-table{width:100%;border-collapse:collapse;margin:10px 0}
     .guide-table th,.guide-table td{border:1px solid rgba(165,0,52,0.14);padding:10px 10px;font-size:13px;vertical-align:top}
     .guide-table th{background:rgba(165,0,52,0.06);text-align:left;color:var(--dark-red);font-weight:800}
+    .credit-list{padding-left:18px}
+    .credit-list li+li{margin-top:8px}
+    .coin-inline{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:6px}
+    .coin-inline img{width:18px;height:18px;display:block}
+    .credit-note{margin-top:8px;padding:10px 12px;background:rgba(165,0,52,0.04);border:1px solid rgba(165,0,52,0.14);border-radius:10px;color:var(--sub)}
+    .credit-figure{margin-top:12px}
+    .credit-figure img{display:block;width:100%;max-width:920px;border:1px solid rgba(165,0,52,0.16);border-radius:12px;box-shadow:0 6px 18px rgba(165,0,52,0.08)}
+    .credit-figure figcaption{margin-top:8px;font-size:12px;color:var(--sub)}
 
     .footer{border-top:1px solid var(--border);position:relative;z-index:1}
     .footer-inner{max-width:1080px;margin:0 auto;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--sub)}
@@ -179,12 +187,25 @@
         <span class="acc-arrow">›</span>
       </button>
       <div class="acc-body"><div class="acc-content">
-        <ul class="acc-list">
-          <li>코인 아이콘을 클릭해 최대 사용 가능 크레딧과 현재 사용량을 확인합니다.</li>
-          <li><span class="emph">Soft Quota 3,000</span>: 사용률 100% 기준값입니다.</li>
-          <li><span class="emph">Hard Quota 4,500</span>: 계정(응시자)당 최대 사용 한도입니다.</li>
-          <li><span class="emph-red">Hard Quota를 초과하면 AI 사용이 차단되고 5분 내 컨테이너가 자동 종료될 수 있으니 유의해 주세요.</span></li>
+        <ul class="credit-list">
+          <li><span class="coin-inline"><img src="./assets/coin_icon.svg" alt="코인 아이콘"></span>코인 모양 아이콘을 클릭하여 최대 사용 가능 크레딧, 현재 AI 크레딧 사용량을 확인합니다.<br>(예) <span class="emph">Hard Quota(크레딧 최대 한도): 4,500</span></li>
         </ul>
+        <div class="credit-note">
+          <span class="emph">Hard Quota(크레딧 최대 한도)</span>는 한 계정당(한 응시자당) 쓸 수 있는 최대 크레딧을 의미합니다.<br>
+          (LLM 모델 상관 없이 전체 문제를 합쳐 4,500 크레딧 내에 응시해야 합니다.)
+        </div>
+        <ul class="credit-list" style="margin-top:10px">
+          <li>사용한 크레딧 양을 확인할 수 있습니다.<br>(예) <span class="emph">Soft Quota - 3,000</span>: 크레딧 사용량을 비율로 표시할 때는 이 수치가 100%가 됩니다.</li>
+        </ul>
+        <div class="credit-note">
+          <span class="emph">Hard Quota - 4,500</span>: Soft Quota 3,000을 넘어도 Hard Quota까지 추가 사용 가능합니다.<br>
+          단, <span class="emph-red">Hard Quota를 넘어가면 안내 팝업과 함께 더 이상 AI 사용이 불가하며 5분 내로 컨테이너가 자동 종료(시험 자동 종료)</span>되니 유의 바랍니다.<br>
+          (컨테이너 종료 전까지 제출 가능)
+        </div>
+        <figure class="credit-figure">
+          <img src="./assets/credit_quota_example.svg" alt="크레딧 사용량 확인 예시 이미지">
+          <figcaption>크레딧 확인 위치 및 Hard/Soft Quota 예시 화면</figcaption>
+        </figure>
       </div></div>
     </article>
 
