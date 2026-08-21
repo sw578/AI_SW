@@ -354,47 +354,6 @@
   </div>
 </section>
 
-<section class="cards-section">
-  <div class="sec-eyebrow" style="margin-bottom:18px">&#x2756; 주요 메뉴</div>
-  <div class="cards-grid">
-    <a class="menu-card" href="#" onclick="event.preventDefault();openIntroPage()">
-      <span class="card-icon">&#x1F4CB;</span>
-      <h3>ASCT소개</h3>
-      <p>About ASCT와 시험개요를 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-    <a class="menu-card" href="./recommend_learning.html">
-      <span class="card-icon">&#x1F4DA;</span>
-      <h3>학습가이드</h3>
-      <p>문제해결, AI 활용, SW Test 관련 추천 과정을 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-    <a class="menu-card" href="./exam_guide.html">
-      <span class="card-icon">&#x1F4DA;</span>
-      <h3>응시가이드</h3>
-      <p>응시 전 필수 준비사항과 환경점검, 유의사항을 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-    <a class="menu-card" href="./exam_schedule.html">
-      <span class="card-icon">&#x1F4C5;</span>
-      <h3>시험일정</h3>
-      <p>회차별 신청 기간, 시험 시간, 결과 발표일을 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-    <a class="menu-card" href="./exam_apply_cancel.html">
-      <span class="card-icon">&#x1F4DD;</span>
-      <h3>시험신청/취소</h3>
-      <p>신청 가능 기간과 절차, 취소 기준 및 유의사항을 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-    <a class="menu-card" href="./faq.html">
-      <span class="card-icon">&#x1F4AC;</span>
-      <h3>FAQ</h3>
-      <p>자주 묻는 질문을 접기/펼치기 형식으로 빠르게 확인할 수 있습니다.</p>
-      <span class="card-more">더 알아보기 &#x203A;</span>
-    </a>
-  </div>
-</section>
 </div>
 
 <section class="intro-view" id="introView">
@@ -491,7 +450,7 @@ function openIntroPage(){
   if(document.body.classList.contains('show-intro')) return;
   document.body.classList.add('show-intro');
   window.scrollTo({top:0,behavior:'smooth'});
-  history.pushState({portalView:'intro'},'',window.location.href);
+  history.pushState({portalView:'intro'},'',`${window.location.pathname}#intro`);
 }
 function closeIntroPage(){
   if(history.state&&history.state.portalView==='intro'){
@@ -507,6 +466,9 @@ window.addEventListener('popstate',()=>{
     document.body.classList.remove('show-intro');
   }
 });
+if(window.location.hash==='#intro'){
+  document.body.classList.add('show-intro');
+}
 // 버블 생성
 (function(){
   const wrap = document.getElementById('bubbles');
